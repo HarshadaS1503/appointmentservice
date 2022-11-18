@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoginService.Migrations
 {
     [DbContext(typeof(LoginContext))]
-    [Migration("20221118074120_LoginTblV1")]
-    partial class LoginTblV1
+    [Migration("20221118112257_loginserv_v1")]
+    partial class loginserv_v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

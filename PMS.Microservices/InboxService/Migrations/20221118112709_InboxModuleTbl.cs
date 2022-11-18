@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InboxService.Migrations
 {
-    public partial class inboxserv_v1 : Migration
+    public partial class InboxModuleTbl : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

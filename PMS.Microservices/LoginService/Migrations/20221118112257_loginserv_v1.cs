@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LoginService.Migrations
 {
-    public partial class LoginTblV1 : Migration
+    public partial class loginserv_v1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InboxService.Migrations
 {
     [DbContext(typeof(NotesDbContext))]
-    [Migration("20221116180147_inboxserv_v1")]
-    partial class inboxserv_v1
+    [Migration("20221118112709_InboxModuleTbl")]
+    partial class InboxModuleTbl
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

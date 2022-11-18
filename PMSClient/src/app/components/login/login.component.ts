@@ -67,8 +67,10 @@ export class LoginComponent implements OnInit {
       }
       else if(Object(this.resp)["responseCode"]==108)
       {
+        localStorage.setItem('userid',JSON.stringify(Object( this.resp)["responseInfo"].userID));
+        localStorage.setItem('roleid',JSON.stringify(Object( this.resp)["responseInfo"].roleID));
+        this.objloginresposne=res as loginResponse;
         
-      this.objloginresposne=res as loginResponse;
       
       console.log("from submitLogin: "+this.objloginresposne.name);
      // this.loginserv.loginsubject.next("SC");
