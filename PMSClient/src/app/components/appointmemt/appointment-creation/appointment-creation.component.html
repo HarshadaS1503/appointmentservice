@@ -1,0 +1,184 @@
+
+<app-header></app-header>
+
+<!-- <section class="vh-100 " >
+  <div class="container h-100" style="margin-top: 100px;">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-6 col-xl-6">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"> Create Appointment</p>
+
+                <form class="mx-1 mx-md-4">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example1c">	Meeting Title</label>
+                      <input type="text" id="form3Example1c" class="form-control" />
+                      
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example3c">Description</label><hr style="width: 80px;">
+
+                    
+                      <div class="row">
+                        <div class="col-md-4 mb-4">
+                          <label class="form-label" for="form3Example3c">Patient Name</label>
+                          <select class="select">
+                            <option value="1">Patient </option>
+                            <option value="2">Option 1</option>
+                            <option value="3">Option 2</option>
+                            <option value="4">Option 3</option>
+                          </select>
+      
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <label class="form-label" for="form3Example3c">Physician Name</label>
+
+                          <select class="select">
+                            <option value="1">Physician</option>
+                            <option value="2">Option 1</option>
+                            <option value="3">Option 2</option>
+                            <option value="4">Option 3</option>
+                          </select>
+      
+                        </div>
+                      </div>
+                      
+                      
+                     
+                    </div>
+                  </div>
+
+                  
+                    
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example4cd">Date of Appointment</label>
+                      <input type="datetime-local" id="form3Example4cd" class="form-control" />
+                      
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="button" class="btn btn-primary btn-lg">save</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+
+
+<section class="h-100 h-custom main">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+            class="w-100"  style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+            alt="Sample photo">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" style="font-size: 18px;">Create An Appointment</h3>
+
+            <form  [formGroup]="AppointmentForm" (ngSubmit)="PostAppointmentData()" class="px-md-2">
+
+              <div class="form-outline mb-4">
+            
+                <label class="form-label" for="form3Example1c">	Meeting Title</label>
+                <input type="text" formControlName="MeetingTitle" [ngModel]="MeetingTitle" id="MeetingTitle" class="form-control" />
+              </div>
+              
+                <div class="form-outline">
+                  <label class="form-label" for="form3Example4c">Description of the Appointment</label>
+                  <input type="text" formControlName="Description" [ngModel]="Description" id="Description" class="form-control" />
+                  
+                </div>
+              <h2></h2>
+              <div class="row">
+                <div class="col-md-4 mb-4">
+                  <label class="form-label" for="form3Example3c">Patient Name</label>
+                  <select formControlName="Pname" [ngModel]="Pname" id="Pname" class="select">
+                    <option value="1">Patient </option>
+                    <option value="2">Option 1</option>
+                    <option value="3">Option 2</option>
+                    <option value="4">Option 3</option>
+                  </select>
+
+                </div>
+                <div class="col-md-4 mb-4">
+                  <label class="form-label" for="form3Example3c">Physician Name</label>
+
+                  <select formControlName="PhName" [ngModel]="PhName" id="PhName" class="select">
+                    <option value="1">Physician</option>
+                    <option value="2">Option 1</option>
+                    <option value="3">Option 2</option>
+                    <option value="4">Option 3</option>
+                  </select>
+
+                </div>
+              </div>
+              
+              
+
+              <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                <div class="col-md-6">
+
+                  
+
+                  <div class="form-outline">
+                    <label class="form-label" for="form3Example4c">Appointment Date and Time</label>
+                    <input formControlName="APTdate" [ngModel]="APTdate"  type="datetime-local" id="APTdate" class="form-control" />
+                    
+                  </div>
+
+                </div>
+              </div>
+              <div class="row">
+              <div class="col-md-4 mb-4">
+              <button type="submit" class="btn btn-outline-success" data-mdb-ripple-color="dark">Save</button>
+              </div>
+              <div class="col-md-4 mb-4">
+              <button type="submit" class="btn btn-outline-danger"  data-mdb-ripple-color="dark">Cancel</button>
+              </div>
+              </div>
+
+              
+
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
