@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { ResponseModel } from '../models/responseModel';
 import { NotesModel } from '../models/notes';
@@ -9,23 +9,14 @@ import { NotesModel } from '../models/notes';
 })
 export class NotesService {
 
-  headers:any;
-
-  constructor(private _http: HttpClient) 
-  {
-
-    this.headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + localStorage.getItem('token').replace(/"/g, '')
-    });
-       console.log("from notes ctor"+localStorage.getItem('token'));
-   }
+  constructor(private _http: HttpClient) { }
 
   getUsers(id: number) {
     return this._http.get<any[]>("https://localhost:44357/api/Notes/GetUsers/10"); //d
   }
 
   sendNotes(sendNotesObj: any): Observable<any> {
-    return this._http.post<any>("https://localhost:44357/api/Notes/AddNote", sendNotesObj,{headers: this.headers}); //d
+    return this._http.post<any>("https://localhost:44357/api/Notes/AddNote", sendNotesObj); //d
   }
 
   getAllNotesBySenderId(id: number): Observable<any> {

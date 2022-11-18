@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SchedulerModule.EfCoreSetUp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace InboxService
             services.AddControllers();
             services.AddDbContext<NotesDbContext>();
             services.AddDbContext<LoginContext>();
+            services.AddDbContext<SchedulerModelDbContext>();
             services.AddScoped<INotesRepo, NotesRepo>();
             services.AddScoped<IAppointmentListRepo, AppointmentListRepo>();
 

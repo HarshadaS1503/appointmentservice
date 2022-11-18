@@ -26,7 +26,7 @@ namespace InboxService.Controllers
         private readonly UserManager<ApplicationUser> userManager;
         private readonly LoginContext loginContext;
 
-        public NotesController(INotesRepo notesRepo, IHttpContextAccessor httpContextAccessor,UserManager<ApplicationUser> userManager, LoginContext loginContext)
+        public NotesController(INotesRepo notesRepo, IHttpContextAccessor httpContextAccessor, UserManager<ApplicationUser> userManager, LoginContext loginContext)
         {
             _notesRepo = notesRepo;
             _httpContextAccessor = httpContextAccessor;
@@ -61,9 +61,9 @@ namespace InboxService.Controllers
         [HttpPost("AddNote")]
         public async Task<object> AddNotes([FromBody] Notes notes)
         {
-            Request.Headers.TryGetValue("Authorization", out var headerValue);
-            var tokenvalue = headerValue.ToString().Replace("Bearer ","");
-            int id = GetUserID(tokenvalue);
+            //Request.Headers.TryGetValue("Authorization", out var headerValue);
+            //var tokenvalue = headerValue.ToString().Replace("Bearer ", "");
+            //int id = GetUserID(tokenvalue);
 
             var result = await _notesRepo.AddNotes(notes);
             if (result > 0)
@@ -96,6 +96,7 @@ namespace InboxService.Controllers
             return await Task.FromResult(new ResponseModel(ResponseCode.OK, "No Users", null));
         }
 
+        #region token
 
         public static ClaimsPrincipal GetPrincipal(string token)
         {
@@ -109,7 +110,7 @@ namespace InboxService.Controllers
                     return null;
 
 
-             //   new SymmetricSecurityKey(Convert.FromBase64String(Configuration["Jwt:Key"].ToString()));
+                //   new SymmetricSecurityKey(Convert.FromBase64String(Configuration["Jwt:Key"].ToString()));
 
                 var symmetricKey = new SymmetricSecurityKey(Convert.FromBase64String("13081612020615030711"));
                 ;
@@ -139,15 +140,17 @@ namespace InboxService.Controllers
             var claimsPrincipal = GetPrincipal(token);
             int id = Convert.ToInt32(claimsPrincipal.FindFirstValue(ClaimTypes.NameIdentifier));
 
-         return id;
+            return id;
         }
 
         public string GetRoleName(string token)
         {
             var claimsPrincipal = GetPrincipal(token);
-            string role =claimsPrincipal.FindFirstValue(ClaimTypes.Role);
+            string role = claimsPrincipal.FindFirstValue(ClaimTypes.Role);
             return role;
         }
+
+        #endregion token
     }
 }
 

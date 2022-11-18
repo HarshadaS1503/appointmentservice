@@ -11,7 +11,6 @@ import { NgToastService } from 'ng-angular-popup';
   styleUrls: ['./receivednotes.component.css']
 })
 export class ReceivednotesComponent implements OnInit {
-
   dataTableValues: any;
   sendNoteForm!: FormGroup;
   senderId = 0;
@@ -22,9 +21,9 @@ export class ReceivednotesComponent implements OnInit {
   senderDesignation = "";
   noteobj!: NotesModel;
 
-  totalLength: any;
-  page: number = 1;
-
+  totalLength:any;
+  page:number=1;
+  
   constructor(private _service: NotesService, private _formBuilder: FormBuilder, private _toast: NgToastService) { }
 
   ngOnInit(): void {
@@ -66,13 +65,13 @@ export class ReceivednotesComponent implements OnInit {
     let deleteNoteId = this.delNoteId;
     //delteNoteObj.SenderId = this.senderId;
     this._service.deleteNoteByid(deleteNoteId).subscribe((response: ResponseModel) => {
-      if (response.responseCode == 1) {
-        console.log(response.responseMessage);
-        this._toast.success({ detail: "Note Deleted", summary: "Successfully!", duration: 3000 });
-        this.ngOnInit();
+      if(response.responseCode==1){
+      console.log(response.responseMessage);
+      this._toast.success({detail:"Note Deleted",summary:"Successfully!",duration:3000});
+      this.ngOnInit();
       }
-      else {
-        this._toast.error({ detail: "Error in deleting notes", summary: "Failure!", duration: 3000 });
+      else{
+        this._toast.error({detail:"Error in deleting notes",summary:"Failure!",duration:3000});
       }
     });
   }
@@ -94,13 +93,12 @@ export class ReceivednotesComponent implements OnInit {
       console.log(this.noteobj);
       this._service.sendNotes(this.noteobj).subscribe((data: ResponseModel) => {
         if (data.responseCode == 1) {
-          this._toast.success({ detail: "Reply Sent", summary: "Successfully!", duration: 3000 });
+          this._toast.success({detail:"Reply Sent",summary:"Successfully!",duration:3000});
         }
         else {
-          this._toast.error({ detail: "Error in inserting notes", summary: "Error Failure!", duration: 3000 });
+          this._toast.error({detail:"Error in inserting notes",summary:"Error Failure!",duration:3000});
         }
       });
     }
   }
-
 }

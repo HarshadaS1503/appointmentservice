@@ -25,7 +25,7 @@ namespace InboxService.Controllers
         {
             var result = await _appointmentListRepo.DashboardAppointmentListCount(id);
 
-            if (result > 0)
+            if (result != null)
             {
                 return await Task.FromResult(new ResponseModel(ResponseCode.OK, "", result));
             }
@@ -42,6 +42,18 @@ namespace InboxService.Controllers
                 return await Task.FromResult(new ResponseModel(ResponseCode.OK, "", result));
             }
             return await Task.FromResult(new ResponseModel(ResponseCode.Error, "no appointments found", result));
+        }
+
+        [HttpPut]
+        [Route("UpdateAppointment")]
+        public async Task<object> UpdateAppointment([FromBody] UpdateAppointmentModel updateAppointment)
+        {
+            var result = await _appointmentListRepo.UpdateAppointmentlist(updateAppointment);
+            if (result > 0)
+            {
+                return await Task.FromResult(new ResponseModel(ResponseCode.OK, "", result));
+            }
+            return await Task.FromResult(new ResponseModel(ResponseCode.Error, "Error while retrieving ", result));
         }
     }
 }
