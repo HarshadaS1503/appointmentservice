@@ -5971,19 +5971,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MohanrajG\\.nuget\\packages\\": {}
+    "C:\\Users\\MamtaY\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj",
+      "projectUniqueName": "C:\\Users\\MamtaY\\pms_persona-\\PMS.Microservices\\LoginService\\LoginService.csproj",
       "projectName": "LoginService",
-      "projectPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj",
-      "packagesPath": "C:\\Users\\MohanrajG\\.nuget\\packages\\",
-      "outputPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\obj\\",
+      "projectPath": "C:\\Users\\MamtaY\\pms_persona-\\PMS.Microservices\\LoginService\\LoginService.csproj",
+      "packagesPath": "C:\\Users\\MamtaY\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MamtaY\\pms_persona-\\PMS.Microservices\\LoginService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MohanrajG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MamtaY\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6054,7 +6054,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
       }
     }
   }
