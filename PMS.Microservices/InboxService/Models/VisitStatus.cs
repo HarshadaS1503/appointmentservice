@@ -11,6 +11,6 @@ namespace InboxService.Models
         [Key]
         public int VisitStatusId { get; set; }
         public string VisitStatusName { get; set; }
-        public string VisitStatusCode { get; set; }
+        //public string VisitStatusCode { get; set; }
     }
 }

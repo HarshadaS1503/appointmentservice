@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InboxService.ViewModel;
+using SchedulerModule.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,10 +9,10 @@ namespace InboxService.Models
 {
     public interface IAppointmentListRepo
     {
-        Task<int> DashboardAppointmentListCount(int id);
+        Task<List<ViewAppointmentModel>> DashboardAppointmentListCount(int id);
 
         Task<AppointmentDetails> Appointmentlist(int id);
 
-        Task<AppointmentDetails> UpdateAppointmentlist(int id, AppointmentDetails appointmentDetails);
+        Task<int> UpdateAppointmentlist(UpdateAppointmentModel updateAppointmentModel);
     }
 }

@@ -25,7 +25,7 @@ namespace PatientModuleService.EfCoreSetup
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Data Source=HARSHADAS\SQLEXPRESS;Initial Catalog = pms;User ID = sa;Password = Cloud@2023");
+            optionsBuilder.UseSqlServer(@"Data Source=IMC5BCP81-BLL\SQLEXPRESS;Initial Catalog=pms;User ID = sa;Password = password_123");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

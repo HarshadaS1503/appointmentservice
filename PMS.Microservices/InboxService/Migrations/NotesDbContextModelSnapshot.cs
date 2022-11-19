@@ -15,8 +15,8 @@ namespace InboxService.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.30")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("InboxService.Models.Notes", b =>
@@ -65,6 +65,21 @@ namespace InboxService.Migrations
                     b.HasKey("NoteId");
 
                     b.ToTable("Notes");
+                });
+
+            modelBuilder.Entity("InboxService.Models.VisitStatus", b =>
+                {
+                    b.Property<int>("VisitStatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("VisitStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("VisitStatusId");
+
+                    b.ToTable("VisitStatuses");
                 });
 #pragma warning restore 612, 618
         }

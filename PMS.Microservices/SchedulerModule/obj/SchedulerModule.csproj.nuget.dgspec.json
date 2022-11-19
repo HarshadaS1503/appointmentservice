@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\SchedulerModule\\SchedulerModule.csproj": {}
+    "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\SchedulerModule\\SchedulerModule.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\LoginService\\LoginService.csproj": {
+    "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\LoginService\\LoginService.csproj",
+        "projectUniqueName": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj",
         "projectName": "LoginService",
-        "projectPath": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\LoginService\\LoginService.csproj",
-        "packagesPath": "C:\\Users\\MamtaY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\LoginService\\obj\\",
+        "projectPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj",
+        "packagesPath": "C:\\Users\\MohanrajG\\.nuget\\packages\\",
+        "outputPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\MamtaY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MohanrajG\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,21 +85,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj": {
+    "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj",
+        "projectUniqueName": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj",
         "projectName": "PatientModuleService",
-        "projectPath": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj",
-        "packagesPath": "C:\\Users\\MamtaY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\PatientModuleService\\obj\\",
+        "projectPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj",
+        "packagesPath": "C:\\Users\\MohanrajG\\.nuget\\packages\\",
+        "outputPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\PatientModuleService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\MamtaY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MohanrajG\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -113,8 +113,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\LoginService\\LoginService.csproj": {
-                "projectPath": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\LoginService\\LoginService.csproj"
+              "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj": {
+                "projectPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj"
               }
             }
           }
@@ -162,21 +162,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\SchedulerModule\\SchedulerModule.csproj": {
+    "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\SchedulerModule\\SchedulerModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\SchedulerModule\\SchedulerModule.csproj",
+        "projectUniqueName": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\SchedulerModule\\SchedulerModule.csproj",
         "projectName": "SchedulerModule",
-        "projectPath": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\SchedulerModule\\SchedulerModule.csproj",
-        "packagesPath": "C:\\Users\\MamtaY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\SchedulerModule\\obj\\",
+        "projectPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\SchedulerModule\\SchedulerModule.csproj",
+        "packagesPath": "C:\\Users\\MohanrajG\\.nuget\\packages\\",
+        "outputPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\SchedulerModule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\MamtaY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MohanrajG\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -190,11 +190,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\LoginService\\LoginService.csproj": {
-                "projectPath": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\LoginService\\LoginService.csproj"
+              "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj": {
+                "projectPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj"
               },
-              "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj": {
-                "projectPath": "C:\\Users\\MamtaY\\IM15_PMS\\IM15_PMS\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj"
+              "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj": {
+                "projectPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Friday18-11-2022New\\appointmentservice\\PMS.Microservices\\PatientModuleService\\PatientModuleService.csproj"
               }
             }
           }
@@ -246,7 +246,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
         }
       }
     }

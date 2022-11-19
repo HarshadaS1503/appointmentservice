@@ -61,8 +61,7 @@
                                     <!-- <td>{{value.reason}}</td> -->
                                     <td style="text-align:center;">
                                         <button><i class="bx bxs-edit" data-bs-toggle="modal"
-                                                data-bs-target="#updatemodal"
-                                                (click)="updateAppointment(value)"></i></button>
+                                                data-bs-target="#updatemodal" (click)="updateAppointment(value)"></i></button>
                                     </td>
 
                                 </tr>
@@ -80,24 +79,21 @@
                                             data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="col-lg-12 modal-body text-center">
-                                        <button type="button" class=" btn btn-success" data-bs-dismiss="modal"
-                                            (click)="updateAppointmentStatus(3)">Confirm</button>
+                                        <button type="button" class=" btn btn-success"
+                                            data-bs-dismiss="modal" (click)="updateAppointmentStatus(3)">Confirm</button>
 
                                         <button type="button" class="btn btn-danger" style="margin-left: 5px;"
                                             data-bs-dismiss="modal" (click)="updateAppointmentStatus(2)">Cancel</button>
 
                                         <button type="button" class=" btn btn-success" style="margin-left: 5px;"
-                                            data-bs-dismiss="modal"
-                                            (click)="updateAppointmentStatus(5)">Completed</button>
+                                            data-bs-dismiss="modal" (click)="updateAppointmentStatus(5)">Completed</button>
 
                                         <button type="button" class="btn btn-danger" style="margin-left: 5px;"
-                                            data-bs-dismiss="modal" (click)="updateAppointmentStatus(6)">No
-                                            Show</button>
+                                            data-bs-dismiss="modal" (click)="updateAppointmentStatus(6)">No Show</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <!-- <div class="modal fade" id="postponemodal" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -114,12 +110,11 @@
                                                 <label for="appointmentDate"
                                                     class="col-sm-2 col-form-label">Date</label>
                                                 <div class="col-sm-4">
-                                                    <input type="date" class="form-control"
-                                                        formControlName="appointmentDate">
+                                                    <input type="date" class="form-control">
                                                 </div>
                                                 <label class="col-sm-2 col-form-label">Slots</label>
                                                 <div class="col-sm-4">
-                                                    <select formControlName="slotId" class="form-select form-control"
+                                                    <select class="form-select form-control"
                                                         aria-label="Default select example">
                                                         <option disabled selected>Select Slot</option>
                                                         <option class="option"></option>
@@ -130,9 +125,8 @@
                                             <div class="row mb-3">
                                                 <label for="message" class="col-sm-2 col-form-label">Reason</label>
                                                 <div class="col-sm-10">
-                                                    <textarea class="form-control" formControlName="description"
-                                                        name="description" rows="6" placeholder="Reason"
-                                                        required></textarea>
+                                                    <textarea class="form-control" name="description" rows="6"
+                                                        placeholder="Reason" required></textarea>
                                                     <div class="error">Reason cannot be blank</div>
                                                 </div>
                                             </div>
