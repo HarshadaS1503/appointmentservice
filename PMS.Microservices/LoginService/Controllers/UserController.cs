@@ -41,8 +41,10 @@ namespace LoginService.Controllers
                 var emailCheck = await userManager.FindByEmailAsync(request.Email);
                 if (emailCheck == null)
                 {
+                    
                     var user = new ApplicationUser
                     {
+                        
                         Title = request.Title,
                         FirstName = request.FirstName,
                         LastName = request.LastName,
@@ -190,8 +192,22 @@ namespace LoginService.Controllers
             }
         }
 
+        [HttpGet("Patient")]
+        public async Task<List<ApplicationUser>> GetUsersByRoleId()
+        {
+            if (loginContext != null)
+            {
+                var aptDetails = userManager.Users.Where(i => i.RoleID == 4).ToList();
 
+                if (aptDetails != null)
+                {
+                    return aptDetails;
 
+                }
+                return null;
+            }
+            return null;
+        }
 
         [HttpGet]
         [Authorize]

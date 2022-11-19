@@ -9,6 +9,7 @@ import { Appointment } from '../models/Appointment';
 })
 export class AppointmentService {
   private Url="Appointment";
+  
 
   constructor(private http:HttpClient) { }
 
@@ -22,5 +23,11 @@ export class AppointmentService {
   public postAppointmentDetails(data:any):Observable<any>
   {
     return this.http.post<any>(`${environment.apiUrl}/${this.Url}`,data);
+  }
+
+  public getUsers():Observable<any>
+  {
+    
+    return this.http.get<any>("https://localhost:44370/api/User/Patient");
   }
 }

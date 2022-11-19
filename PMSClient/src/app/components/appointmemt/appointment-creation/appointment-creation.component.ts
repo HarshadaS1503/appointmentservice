@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserModel } from 'src/app/models/User';
 import { AppointmentService } from 'src/app/services/appointment.service';
 
 @Component({
@@ -13,6 +14,8 @@ export class AppointmentCreationComponent implements OnInit {
   PhName:"";
   Description:"";
   APTdate:Date;
+  Patient :UserModel[] =[]
+  PatientName:string;
   AppointmentForm =new  FormGroup({
     MeetingTitle: new FormControl("",[Validators.required]),
     Description: new FormControl(),
@@ -24,6 +27,7 @@ export class AppointmentCreationComponent implements OnInit {
   constructor(private Appointmentservice:AppointmentService) { }
 
   ngOnInit(): void {
+    this.getPatient();
   }
 
   PostAppointmentData()
@@ -32,6 +36,16 @@ export class AppointmentCreationComponent implements OnInit {
 
         console.log(this.data);
       })
+  }
+
+  getPatient()
+  {
+    this.Appointmentservice.getUsers().subscribe(res =>{
+      console.log(res);
+      this.Patient = res;
+      
+      console.log(this.Patient);
+    })
   }
 
 }

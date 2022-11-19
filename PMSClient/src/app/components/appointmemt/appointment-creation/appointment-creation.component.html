@@ -126,10 +126,8 @@
                 <div class="col-md-4 mb-4">
                   <label class="form-label" for="form3Example3c">Patient Name</label>
                   <select formControlName="Pname" [ngModel]="Pname" id="Pname" class="select">
-                    <option value="1">Patient </option>
-                    <option value="2">Option 1</option>
-                    <option value="3">Option 2</option>
-                    <option value="4">Option 3</option>
+                    <option value="{{pts.id}}" *ngFor="let pts of Patient">{{pts.firstName +" " +pts.lastName}} </option>
+                    
                   </select>
 
                 </div>
