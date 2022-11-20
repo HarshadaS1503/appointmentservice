@@ -20,6 +20,12 @@ export class AppointmentService {
     return this.http.get<any>(`${environment.apiUrl}/${this.Url}`);
   }
 
+  public getAppointmentsByRoleId(id:number,roleId:number):Observable<any>
+  {
+    
+    return this.http.get<any>(`${environment.apiUrl}/${this.Url}/userAppointments/${id}/${roleId}`);
+  }
+
   public postAppointmentDetails(data:any):Observable<any>
   {
     return this.http.post<any>(`${environment.apiUrl}/${this.Url}`,data);

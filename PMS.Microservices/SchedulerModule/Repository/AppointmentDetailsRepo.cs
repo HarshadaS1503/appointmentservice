@@ -21,6 +21,14 @@ namespace SchedulerModule.Repository
         {
             if(_schedulerModelDbContext!=null)
             {
+                Slots slottimes = await _schedulerModelDbContext.Slots.FirstOrDefaultAsync(x => x.SlotId == AppointmentModel.SlotId);
+                if (slottimes != null)
+                {
+                    AppointmentModel.AppointmentStartdate = AppointmentModel.visitDate.Add(slottimes.SlotStart);
+                    AppointmentModel.AppointmentEnddate = AppointmentModel.visitDate.Add(slottimes.SlotEnd);
+                    AppointmentModel.Status = "Created";
+                }
+
                 AppointmentModel.createdOn = DateTime.Now;
                 await _schedulerModelDbContext.AddAsync(AppointmentModel);
                 await _schedulerModelDbContext.SaveChangesAsync();
@@ -63,20 +71,45 @@ namespace SchedulerModule.Repository
         {
             if (_schedulerModelDbContext != null)
             {
-                var AptDetailsToUpdate = await _schedulerModelDbContext.appointmentDetails.FirstOrDefaultAsync(aptId => aptId.VisitId == id);
-                if (AptDetailsToUpdate != null)
+                //var AptDetailsToUpdate = await _schedulerModelDbContext.appointmentDetails.FirstOrDefaultAsync(aptId => aptId.VisitId == id);
+                //if (AptDetailsToUpdate != null)
+                //{
+                //    AptDetailsToUpdate.visitDate = appointmentDetailsModel.visitDate;
+                //    AptDetailsToUpdate.VisitTitle = appointmentDetailsModel.VisitTitle;
+                //    AptDetailsToUpdate.updatedOn = DateTime.Now;
+                //    AptDetailsToUpdate.VisitDescription = appointmentDetailsModel.VisitDescription;
+                //    //AptDetailsToUpdate.visitStatusId = appointmentDetailsModel.visitStatusId;
+                //    //AptDetailsToUpdate.visitTime = appointmentDetailsModel.visitTime;
+                //    AptDetailsToUpdate.createdBy = appointmentDetailsModel.createdBy;
+                //    AptDetailsToUpdate.updatedBy = appointmentDetailsModel.updatedBy;
+                //    _schedulerModelDbContext.appointmentDetails.Update(AptDetailsToUpdate);
+                //    await _schedulerModelDbContext.SaveChangesAsync();
+                //}
+
+                var result = await _schedulerModelDbContext.appointmentDetails.FirstOrDefaultAsync(x => x.VisitId == id);
+
+                if (result != null)
                 {
-                    AptDetailsToUpdate.visitDate = appointmentDetailsModel.visitDate;
-                    AptDetailsToUpdate.VisitTitle = appointmentDetailsModel.VisitTitle;
-                    AptDetailsToUpdate.updatedOn = DateTime.Now;
-                    AptDetailsToUpdate.VisitDescription = appointmentDetailsModel.VisitDescription;
-                    AptDetailsToUpdate.visitStatusId = appointmentDetailsModel.visitStatusId;
-                    AptDetailsToUpdate.visitTime = appointmentDetailsModel.visitTime;
-                    AptDetailsToUpdate.createdBy = appointmentDetailsModel.createdBy;
-                    AptDetailsToUpdate.updatedBy = appointmentDetailsModel.updatedBy;
-                    _schedulerModelDbContext.appointmentDetails.Update(AptDetailsToUpdate);
-                    await _schedulerModelDbContext.SaveChangesAsync();
+                    Slots slottimes = await _schedulerModelDbContext.Slots.FirstOrDefaultAsync(x => x.SlotId == appointmentDetailsModel.SlotId);
+                    if (slottimes != null)
+                    {
+                        result.visitDate = appointmentDetailsModel.visitDate;
+                        result.VisitTitle = appointmentDetailsModel.VisitTitle;
+                        result.VisitDescription = appointmentDetailsModel.VisitDescription;
+                        result.AppointmentStartdate = appointmentDetailsModel.visitDate.Add(slottimes.SlotStart);
+                        result.AppointmentEnddate = appointmentDetailsModel.visitDate.Add(slottimes.SlotEnd);
+
+                        result.SlotId = appointmentDetailsModel.SlotId;
+                    }
+                    if (appointmentDetailsModel.Status != null)
+                    {
+                        result.Status = appointmentDetailsModel.Status;
+                    }
+
+                    _schedulerModelDbContext.appointmentDetails.Update(result);
+                    return await _schedulerModelDbContext.SaveChangesAsync();
                 }
+
 
             }
 
@@ -89,6 +122,97 @@ namespace SchedulerModule.Repository
             _schedulerModelDbContext.SaveChanges();
             
         }
+
+        public async Task<List<AppointmentDetails>> GetAppointmentsByUser(int userId)
+        {
+            if (_schedulerModelDbContext != null)
+                return await _schedulerModelDbContext.appointmentDetails.Where(x => x.patientId == userId || x.doctorId == userId).ToListAsync();
+            else
+                return null;
+        }
+
+        public async Task<List<ViewAppointmentModel>> GetAppointmentsLoad(int id, int roleId)
+        {
+            if (_schedulerModelDbContext != null)
+            {
+                List<AppointmentDetails> appointments = new List<AppointmentDetails>();
+                List<ViewAppointmentModel> viewAppointments = new List<ViewAppointmentModel>();
+                if (roleId == 3)
+                {
+                    appointments = await _schedulerModelDbContext.appointmentDetails.ToListAsync();
+                }
+                else
+                {
+                    appointments = await _schedulerModelDbContext.appointmentDetails.Where(x => x.doctorId == id || x.patientId == id).ToListAsync();
+                }
+                foreach (var item in appointments)
+                {
+                    ViewAppointmentModel model = new ViewAppointmentModel();
+                    model.Id = item.VisitId;
+                    model.Start = (DateTime)item.AppointmentStartdate;
+                    model.End = (DateTime)item.AppointmentEnddate;
+                    model.Text = item.VisitTitle;
+                    if (item.Status == "Declined")
+                    {
+                        model.BackColor = "#db403b";
+                    }
+                    else if (item.Status == "Accepted")
+                    {
+                        model.BackColor = "#ADD8E6";
+                    }
+                    else
+                    {
+                        model.BackColor = "##bf00ff";
+                    }
+                    viewAppointments.Add(model);
+                }
+                return viewAppointments;
+            }
+            else
+                return null;
+        }
+
+
+        public async Task<int> AcceptAppointment(int id)
+        {
+            if (_schedulerModelDbContext != null)
+            {
+                var result = await _schedulerModelDbContext.appointmentDetails.FirstOrDefaultAsync(x => x.VisitId == id);
+
+                if (result != null)
+                {
+
+                      result.Status = "Accepted";
+                    //_schedulerModelDbContext.Entry(result).State = EntityState.Modified;  
+                    _schedulerModelDbContext.appointmentDetails.Update(result);
+                    await _schedulerModelDbContext.SaveChangesAsync();
+                }
+
+
+            }
+            return 0;
+        }
+
+        public async Task<int> DeclineAppointment(int id)
+        {
+            if (_schedulerModelDbContext != null)
+            {
+                var result = await _schedulerModelDbContext.appointmentDetails.FirstOrDefaultAsync(x => x.VisitId == id);
+
+                if (result != null)
+                {
+                    result.Status = "Declined";
+
+                    _schedulerModelDbContext.appointmentDetails.Update(result);
+                    return await _schedulerModelDbContext.SaveChangesAsync();
+                }
+
+
+            }
+            return 0;
+        }
+
+
 
         public bool IsAppointmentAvailable(int visitId)
         {
@@ -108,23 +232,45 @@ namespace SchedulerModule.Repository
             }
             return null;
         }
-
-        public async Task<List<AppointmentDetails>> GetAppointmentDatesByPhysician(DateTime dateTime, int id)
+        public async Task<List<Slots>> GetSlots(DateTime date, int id)
         {
-            if(_schedulerModelDbContext!=null)
+            if (_schedulerModelDbContext != null)
             {
-                List<AppointmentDetails> AvailableSlots = await _schedulerModelDbContext.appointmentDetails.Where(i => i.visitTime == dateTime && i.doctorId == id).ToListAsync();
-
-                if(AvailableSlots != null)
+                List<AppointmentDetails> slots = await _schedulerModelDbContext.appointmentDetails.Where(x => x.visitDate == date && x.doctorId == id).ToListAsync();
+                List<Slots> availableSlots = new List<Slots>();
+                if (slots != null)
                 {
-                    return AvailableSlots;
+                    var slotsIds = slots.Select(x => x.SlotId).ToList();
+                    availableSlots = await _schedulerModelDbContext.Slots.Where(x => !slotsIds.Contains(x.SlotId)).ToListAsync();
                 }
-                return null;
-
+                else
+                {
+                    availableSlots = await _schedulerModelDbContext.Slots.ToListAsync();
+                }
+                return availableSlots;
             }
             return null;
+
+
         }
 
-        
+
+        //public async Task<List<AppointmentDetails>> GetAppointmentDatesByPhysician(DateTime dateTime, int id)
+        //{
+        //    if(_schedulerModelDbContext!=null)
+        //    {
+        //        List<AppointmentDetails> AvailableSlots = await _schedulerModelDbContext.appointmentDetails.Where(i => i.visitTime == dateTime && i.doctorId == id).ToListAsync();
+
+        //        if(AvailableSlots != null)
+        //        {
+        //            return AvailableSlots;
+        //        }
+        //        return null;
+
+        //    }
+        //    return null;
+        //}
+
+
     }
 }

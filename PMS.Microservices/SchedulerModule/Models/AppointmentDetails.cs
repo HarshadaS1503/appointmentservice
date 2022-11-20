@@ -20,14 +20,17 @@ namespace SchedulerModule.Models
         //[ForeignKey("users")]
         public int patientId { get; set; }
         public DateTime visitDate { get; set; }
-        public DateTime visitTime { get; set; }
-        
+       
+        public DateTime? AppointmentStartdate { get; set; }
+        public DateTime? AppointmentEnddate { get; set; }
+        public int SlotId { get; set; }
+
         public int createdBy { get; set; }
         public DateTime createdOn { get; set; }
         public int updatedBy { get; set; }
          
         public DateTime updatedOn { get; set; }
-        public int visitStatusId { get; set; }
+        public string Status { get; set; }
         public ApplicationUser users { get; set; }
 
 

@@ -14,7 +14,11 @@ namespace SchedulerModule.Repository
         void DeleteAppointmentDetails(AppointmentDetails appointment);
         Task<AppointmentDetails> GetAppointmentDetailById(int id);
         Task<AppointmentDetails> GetAppointmentDetailByIdAndRoleId(int id,int roleId);
-        Task<List<AppointmentDetails>> GetAppointmentDatesByPhysician(DateTime dateTime,int id);
+        Task<List<Slots>> GetSlots(DateTime dateTime,int id);
+        Task<List<AppointmentDetails>> GetAppointmentsByUser(int userId);
+        Task<List<ViewAppointmentModel>> GetAppointmentsLoad(int id, int roleId);
+        Task<int> DeclineAppointment(int id);
+        Task<int> AcceptAppointment(int id);
         bool IsAppointmentAvailable(int visitId);
     }
 }

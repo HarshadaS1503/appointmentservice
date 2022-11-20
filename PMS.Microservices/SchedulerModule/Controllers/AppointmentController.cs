@@ -46,28 +46,47 @@ namespace SchedulerModule.Controllers
             return appointment;
         }
 
-        [HttpGet("{id}/{roleId}")]
-        public async Task<AppointmentDetails> getAppointmentByIdAndRoleId(int id,int roleId)
+
+        [HttpGet("user/{id}")]
+        public async Task<List<AppointmentDetails>> getAppointmentUser(int id)
         {
-            AppointmentDetails appointment = await _appointmentDetailsRepo.GetAppointmentDetailByIdAndRoleId(id,roleId);
+            List<AppointmentDetails> appointment = await _appointmentDetailsRepo.GetAppointmentsByUser(id);
 
             if (appointment == null)
             {
                 var response = new HttpResponseMessage(System.Net.HttpStatusCode.NotFound)
                 {
-                    Content = new StringContent(string.Format("No Appointment exist with Id : {0}", id)),
-                    ReasonPhrase = "Appointment not found with the ID"
+                    Content = new StringContent(string.Format("No User exist with Id : {0}", id)),
+                    ReasonPhrase = "User not found with the ID"
                 };
                 throw new System.Web.Http.HttpResponseException(response);
             }
             return appointment;
         }
 
+        [HttpGet("userAppointments/{userId}/{roleId}")]
+        public async Task<object> GetAppointmentsByUserLoad(int userId, int roleId)
+        {
+            var result = await _appointmentDetailsRepo.GetAppointmentsLoad(userId, roleId);
+
+            if (result == null)
+            {
+                var response = new HttpResponseMessage(System.Net.HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format("No User exist with Id : {0}", userId)),
+                    ReasonPhrase = "User not found with the ID"
+                };
+                throw new System.Web.Http.HttpResponseException(response);
+            }
+            return result;
+        }
+
+
         [HttpGet("Availableslots/{date}/{id}")]
 
         public async Task<object> GetSlots(DateTime date, int id)
         {
-            var result = await _appointmentDetailsRepo.GetAppointmentDatesByPhysician(date, id);
+            var result = await _appointmentDetailsRepo.GetSlots(date, id);
             if (result == null)
             {
                 var response = new HttpResponseMessage(System.Net.HttpStatusCode.NotFound)
@@ -123,8 +142,46 @@ namespace SchedulerModule.Controllers
             return "Record has been deleted";
         }
 
+        [HttpPut("Decline/{id}")]
+        public async Task<string> declineAppointmentDetails(int id)
+        {
+            var res = await _appointmentDetailsRepo.DeclineAppointment(id);
+            //var appointToDelete = _appointmentDetailsRepo.GetAppointmentDetailById(id).Result;
+            if (res <= 0)
+            {
+                var response = new HttpResponseMessage(System.Net.HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format("No appointment found with the Id : {0}", id)),
+                    ReasonPhrase = "Appointment does not exist to be declined"
+                };
+            }
 
-       
+            return "Record has been declined";
+        }
+
+        [HttpPut("Accept/{id}")]
+        public  async Task<string> AcceptAppointmentDetails(int id)
+        {
+            var res =  await _appointmentDetailsRepo.AcceptAppointment(id);
+            //var appointToDelete = _appointmentDetailsRepo.GetAppointmentDetailById(id).Result;
+            if (res <= 0)
+            {
+                var response = new HttpResponseMessage(System.Net.HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format("No appointment found with the Id : {0}", id)),
+                    ReasonPhrase = "Appointment does not exist to be accepted"
+                };
+            }
+            
+
+            return "appointment has been accepted";
+        }
+
+
+
+
+
+
 
 
     }

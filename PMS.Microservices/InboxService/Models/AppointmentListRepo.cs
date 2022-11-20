@@ -52,10 +52,10 @@ namespace InboxService.Models
                     model.doctorId = items.doctorId;
                     model.patientId = items.patientId;
                     model.visitDate = items.visitDate;
-                    model.visitTime = items.visitTime;
+                    //model.visitTime = items.visitTime;
                     model.DoctorName = docName.Title + " " + docName.FirstName + " " + docName.LastName;
                     model.PatientName = patName.Title + " " + patName.FirstName + " " + patName.LastName;
-                    model.VisitStatusName = _notesDbContext.VisitStatuses.FirstOrDefault(v => v.VisitStatusId == items.visitStatusId).VisitStatusName;
+                    //model.VisitStatusName = _notesDbContext.VisitStatuses.FirstOrDefault(v => v.VisitStatusId == items.visitStatusId).VisitStatusName;
                     model.BackColor = items.visitDate.ToString("MM/dd/yyyy") == DateTime.Today.ToString("MM/dd/yyyy") ? "yes" : "no";
                     viewAppointmentModel.Add(model);
                 }
@@ -82,7 +82,7 @@ namespace InboxService.Models
 
                 if (result != null)
                 {
-                    result.visitStatusId = updateAppointmentModel.UpdateType;
+                    //result.visitStatusId = updateAppointmentModel.UpdateType;
 
                     _schedulerModelDbContext.appointmentDetails.Update(result);
                     return await _schedulerModelDbContext.SaveChangesAsync();

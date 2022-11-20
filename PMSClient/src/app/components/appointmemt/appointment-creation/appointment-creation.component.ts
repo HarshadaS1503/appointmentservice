@@ -17,7 +17,10 @@ export class AppointmentCreationComponent implements OnInit {
   Patient :UserModel[];
   physician: UserModel[];
   PatientName:string;
+  slots:any;
   meetingTitle:string;
+  visitDate:any;
+  phyId:any;
   UnavailableSlots = ["11/21/2022:11", "11/22/2020:0", "11/23/2020:17"]; //your dates from database with only hr
   AppointmentForm = this.fb.group({
     MeetingTitle: new FormControl("",[Validators.required]),
@@ -29,6 +32,7 @@ export class AppointmentCreationComponent implements OnInit {
   
   
   data:any;
+  AptData:any;
   constructor(private Appointmentservice:AppointmentService,private fb: FormBuilder) { 
 
 
@@ -38,6 +42,10 @@ export class AppointmentCreationComponent implements OnInit {
   ngOnInit(): void {
     this.getPatient();
     this.getPysician();
+    this.getApt();
+
+    
+
     
     
     
@@ -62,6 +70,24 @@ export class AppointmentCreationComponent implements OnInit {
     })
   }
 
+
+  getApt()
+  {
+    this.Appointmentservice.getAppointments().subscribe(res =>{
+      
+      this.AptData = res;
+      
+      console.log(this.AptData);
+      this.AptData.forEach(e => {
+        console.log(e);
+        console.log(e.visitDate);
+        this.visitDate = e.visitDate;
+        this.phyId = e.doctorId;
+
+
+      });
+    })
+  }
   getPysician()
   {
     this.Appointmentservice.getPysician().subscribe(res =>{
@@ -83,10 +109,12 @@ formatDate(datestr)
     // month = month>9?month:"0"+month;
     // return month+"/"+day+"/"+date.getFullYear();
 }
-getAvailableSlots(date:any,id:number)
+getAvailableSlots()
 {
-  this.Appointmentservice.getSlots(date,id).subscribe(res =>{
-    console.log(res);
+  this.getApt();
+  this.Appointmentservice.getSlots(this.visitDate,this.phyId).subscribe(res =>{
+    this.slots=res;
+    console.log(this.slots);
   })
 }
 
@@ -94,7 +122,7 @@ getAvailableSlots(date:any,id:number)
 OnDateTimeChange(event:any)
 {
    let pId = this.AppointmentForm.get("PhName")?.value;
-   this.getAvailableSlots(event,pId);
+   this.getAvailableSlots();
 }
 
 

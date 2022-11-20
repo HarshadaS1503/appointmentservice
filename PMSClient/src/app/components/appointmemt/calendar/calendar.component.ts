@@ -17,6 +17,7 @@ export class CalendarComponent implements OnInit {
   enableDay: boolean=false;
   appointmentList: any;
   appointmentLists: Appointment[]=[];
+  events:DayPilot.EventData[]=[];
 
  
   @ViewChild("navigator") nav!:DayPilotNavigatorComponent;
@@ -33,35 +34,7 @@ export class CalendarComponent implements OnInit {
     onEventMoved: args => {
       console.log("Event moved");
     },
-  //   onEventClick:arg=>{
-  //    // alert(arg.e.id());
-  //     //this.router.navigate(['/Appointment-creation' ,arg.e.id()]);
-  //     // this.openModal();
-  //     // var modal = new DayPilot.Modal()
-  //     // modal.onShow = function(arg)
-
-  //     // {
-  //     //   clearSelection();
-  //     //   var data = args.e.data;
-  //     //   if(data && data.result ==="OK" )
-  //     //   {
-         
-  //     //   }
-  //     // }
-  // //      this.showModal = true;
-  // //      var dp = new DayPilot.Calendar("dp");
-  // //     dp.contextMenu = new DayPilot.Menu({items: [
-  // //   {text:"Delete", onClick: function(args) { var e = args.source; dp.events.remove(e); } },
-  // //   {text:"Edit" , onClick:function(args){var e = args.source; dp.events.update(e)}}
-  // // ]});
-  // // // ...
-  // // dp.init();
-      
-      
-  //   },
-
     
-   
 
   
     eventDeleteHandling: "Update",
@@ -93,12 +66,7 @@ export class CalendarComponent implements OnInit {
     
     
   }
-  events: DayPilot.EventData[]= [
-    { id: 1, start: "2022-11-14T10:00:00", end: "2022-11-15T14:00:00", text: "Event 1" },
-    { id: 2, start: "2022-11-16T10:00:00", end: "2022-11-17T14:00:00", text: "Event 2" }
-
-  ]
-
+  
 
 
   constructor(private router : Router,private appointmentService: AppointmentService) { }
@@ -106,13 +74,27 @@ export class CalendarComponent implements OnInit {
   
   
     
-    
+    userid:number;
+    roleid:number;
 
 
 
   ngOnInit(): void {
     
-    this.getAppointments();   
+    //this.getAppointments();   
+    
+    const useid = localStorage.getItem("userid");
+     if (typeof useid === 'string')
+      {
+      this.userid = Number(JSON.parse(useid))
+      }
+     const rolid = localStorage.getItem("roleid");
+     if (typeof rolid === 'string')
+      {
+      this.roleid = Number(JSON.parse(rolid))
+      }
+
+      this.getAppointmentsByRole();
   }
 
   configMonth: DayPilot.MonthConfig = {
@@ -215,6 +197,15 @@ export class CalendarComponent implements OnInit {
     this.appointmentLists =this.appointmentList;
     console.log(this.appointmentLists);
     console.log(this.appointmentLists[0].visitDescription);
+
+    })
+
+  }
+
+  getAppointmentsByRole(){
+    this.appointmentService.getAppointmentsByRoleId(4,3).subscribe((data:any)=>{
+    console.log(data);
+    this.events = data;
 
     })
 

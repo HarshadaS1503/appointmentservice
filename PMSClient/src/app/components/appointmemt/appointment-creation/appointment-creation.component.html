@@ -126,7 +126,7 @@
                 <input type="text" formControlName="MeetingTitle" [ngModel]="MeetingTitle" id="MeetingTitle" class="form-control" />
               </div>
               
-                <div class="form-outline">
+                <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4c">Description of the Appointment</label>
                   <input type="text" formControlName="Description" [ngModel]="Description" id="Description" class="form-control" />
                   
@@ -154,19 +154,33 @@
               
               
 
-              <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+              <div class="row mb-4 pb-2 pb-md-0 mb-md-4">
                 <div class="col-md-6">
 
                   
 
-                  <div class="form-outline">
-                    <label class="form-label" for="form3Example4c">Appointment Date and Time</label>
-                    <input formControlName="APTdate" (ngModelChange)="OnDateTimeChange($event)" [ngModel]="APTdate"  type="datetime-local" id="APTdate" class="form-control" />
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example4c">Appointment Date</label>
+                    <input formControlName="APTdate" (ngModelChange)="OnDateTimeChange($event)" [ngModel]="APTdate"  type="date" id="APTdate" class="form-control" />
                     
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example4c">Appointment  Time</label>
+                    <select formControlName="APTdate" [ngModel]="APTdate"  type="datetime" id="APTdate" class="select">
+                      <option value="{{slot.slotId}}" *ngFor="let slot of slots ">{{slot.slotTiming}}</option>
+                      
+                    </select>
                   </div>
 
                 </div>
               </div>
+              
+
+                  
+
+                  
+
+                
               <div class="row">
               <div class="col-md-4 mb-4">
               <button type="submit" class="btn btn-outline-success" data-mdb-ripple-color="dark">Save</button>
