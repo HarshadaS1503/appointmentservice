@@ -979,6 +979,13 @@
 "@csstools/selector-specificity@^2.0.0", "@csstools/selector-specificity@^2.0.2":
   "version" "2.0.2"
 
+"@daypilot/daypilot-lite-angular@^3.11.0":
+  "integrity" "sha512-gaYA2BVthC+1xqLhuv+/M4LeqghaxBgYgjZw0FlQgTGumQ4nS7NJkiTlz9A7OpYZ4dW9nbAxg39KC2+65MU2yQ=="
+  "resolved" "https://registry.npmjs.org/@daypilot/daypilot-lite-angular/-/daypilot-lite-angular-3.11.0.tgz"
+  "version" "3.11.0"
+  dependencies:
+    "tslib" "^2.3.0"
+
 "@discoveryjs/json-ext@0.5.7":
   "version" "0.5.7"
 

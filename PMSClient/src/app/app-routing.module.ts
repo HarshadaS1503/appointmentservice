@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppointmentCreationComponent } from './components/appointmemt/appointment-creation/appointment-creation.component';
 import { CalendarComponent } from './components/appointmemt/calendar/calendar.component';
+import { Calender1Component } from './components/appointment/calender1/calender1.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { DashboardMainComponent } from './components/dashboardPages/dashboard-main/dashboard-main.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:'emergencycontact', component:EmergencyComponent},
   {path:'Appointment-creation', component:AppointmentCreationComponent},
   {path:'notes', component:NotesComponent},
-  {path:'appointmentlist', component:AppointmentlistComponent}
+  {path:'appointmentlist', component:AppointmentlistComponent},
+  {path:'NewCalender', component:Calender1Component}
 ];
 
 @NgModule({
