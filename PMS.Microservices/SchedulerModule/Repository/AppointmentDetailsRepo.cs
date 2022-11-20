@@ -108,5 +108,23 @@ namespace SchedulerModule.Repository
             }
             return null;
         }
+
+        public async Task<List<AppointmentDetails>> GetAppointmentDatesByPhysician(DateTime dateTime, int id)
+        {
+            if(_schedulerModelDbContext!=null)
+            {
+                List<AppointmentDetails> AvailableSlots = await _schedulerModelDbContext.appointmentDetails.Where(i => i.visitTime == dateTime && i.doctorId == id).ToListAsync();
+
+                if(AvailableSlots != null)
+                {
+                    return AvailableSlots;
+                }
+                return null;
+
+            }
+            return null;
+        }
+
+        
     }
 }

@@ -63,6 +63,23 @@ namespace SchedulerModule.Controllers
             return appointment;
         }
 
+        [HttpGet("Availableslots/{date}/{id}")]
+
+        public async Task<object> GetSlots(DateTime date, int id)
+        {
+            var result = await _appointmentDetailsRepo.GetAppointmentDatesByPhysician(date, id);
+            if (result == null)
+            {
+                var response = new HttpResponseMessage(System.Net.HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format("No Appointment exist with Id : {0}", id)),
+                    ReasonPhrase = "Appointment not found with the ID"
+                };
+                throw new System.Web.Http.HttpResponseException(response);
+            }
+            return result;
+        }
+
 
         [HttpPost]
         public async Task<object> addAppointmentDetails([FromBody] AppointmentDetails appointmentDetails)

@@ -1,6 +1,16 @@
 
 <app-header></app-header>
 
+
+<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/js/bootstrap-datetimepicker.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+<link href="https://rawgit.com/AuspeXeu/bootstrap-datetimepicker/master/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet"/> -->
+
 <!-- <section class="vh-100 " >
   <div class="container h-100" style="margin-top: 100px;">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -135,10 +145,8 @@
                   <label class="form-label" for="form3Example3c">Physician Name</label>
 
                   <select formControlName="PhName" [ngModel]="PhName" id="PhName" class="select">
-                    <option value="1">Physician</option>
-                    <option value="2">Option 1</option>
-                    <option value="3">Option 2</option>
-                    <option value="4">Option 3</option>
+                    <option value="{{phys.id}}" *ngFor="let phys of physician ">{{phys.firstName+ " "+phys.lastName}}</option>
+                    
                   </select>
 
                 </div>
@@ -153,7 +161,7 @@
 
                   <div class="form-outline">
                     <label class="form-label" for="form3Example4c">Appointment Date and Time</label>
-                    <input formControlName="APTdate" [ngModel]="APTdate"  type="datetime-local" id="APTdate" class="form-control" />
+                    <input formControlName="APTdate" (ngModelChange)="OnDateTimeChange($event)" [ngModel]="APTdate"  type="datetime-local" id="APTdate" class="form-control" />
                     
                   </div>
 

@@ -193,7 +193,7 @@ namespace LoginService.Controllers
         }
 
         [HttpGet("Patient")]
-        public async Task<List<ApplicationUser>> GetUsersByRoleId()
+        public async Task<List<ApplicationUser>> GetPatientByRoleId()
         {
             if (loginContext != null)
             {
@@ -208,6 +208,26 @@ namespace LoginService.Controllers
             }
             return null;
         }
+
+
+        [HttpGet("Physician")]
+        public async Task<List<ApplicationUser>> GetPhysicianByRoleId()
+        {
+            if (loginContext != null)
+            {
+                var aptDetails = userManager.Users.Where(i => i.RoleID ==2).ToList();
+
+                if (aptDetails != null)
+                {
+                    return aptDetails;
+
+                }
+                return null;
+            }
+            return null;
+        }
+
+
 
         [HttpGet]
         [Authorize]

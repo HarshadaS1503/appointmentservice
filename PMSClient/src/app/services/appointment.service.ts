@@ -30,4 +30,15 @@ export class AppointmentService {
     
     return this.http.get<any>("https://localhost:44370/api/User/Patient");
   }
+
+  public getPysician():Observable<any>
+  {
+    
+    return this.http.get<any>("https://localhost:44370/api/User/Physician");
+  }
+
+  public getSlots(date:any,id:number):Observable<any>
+  {   
+    return this.http.get<any>("https://localhost:44301/api/Appointment/Availableslots/"+date+"/"+id);
+  }
 }
