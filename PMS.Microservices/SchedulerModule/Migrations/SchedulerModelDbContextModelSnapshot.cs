@@ -35,9 +35,6 @@ namespace SchedulerModule.Migrations
                     b.Property<int>("SlotId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("VisitDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -65,7 +62,12 @@ namespace SchedulerModule.Migrations
                     b.Property<DateTime>("visitDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("visitStatusId")
+                        .HasColumnType("int");
+
                     b.HasKey("VisitId");
+
+                    b.HasIndex("visitStatusId");
 
                     b.ToTable("appointmentDetails");
                 });
@@ -140,6 +142,32 @@ namespace SchedulerModule.Migrations
                             SlotStart = new TimeSpan(0, 16, 0, 0, 0),
                             SlotTiming = "4 PM - 5 PM"
                         });
+                });
+
+            modelBuilder.Entity("SchedulerModule.Models.VisitStatuses", b =>
+                {
+                    b.Property<int>("VisitStatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("VisitStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("VisitStatusId");
+
+                    b.ToTable("visitStatuses");
+                });
+
+            modelBuilder.Entity("SchedulerModule.Models.AppointmentDetails", b =>
+                {
+                    b.HasOne("SchedulerModule.Models.VisitStatuses", "visitStatuses")
+                        .WithMany()
+                        .HasForeignKey("visitStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("visitStatuses");
                 });
 #pragma warning restore 612, 618
         }

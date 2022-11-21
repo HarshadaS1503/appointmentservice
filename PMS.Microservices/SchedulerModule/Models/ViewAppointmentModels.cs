@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SchedulerModule.Models
 {
-    public class ViewAppointmentModel
+    public class ViewAppointmentModels
     {
         public int Id { get; set; }
         public DateTime Start { get; set; }

@@ -26,7 +26,7 @@ namespace SchedulerModule.Repository
                 {
                     AppointmentModel.AppointmentStartdate = AppointmentModel.visitDate.Add(slottimes.SlotStart);
                     AppointmentModel.AppointmentEnddate = AppointmentModel.visitDate.Add(slottimes.SlotEnd);
-                    AppointmentModel.Status = "Created";
+                    AppointmentModel.visitStatusId = 1;
                 }
 
                 AppointmentModel.createdOn = DateTime.Now;
@@ -101,9 +101,9 @@ namespace SchedulerModule.Repository
 
                         result.SlotId = appointmentDetailsModel.SlotId;
                     }
-                    if (appointmentDetailsModel.Status != null)
+                    if (appointmentDetailsModel.visitStatusId != 0)
                     {
-                        result.Status = appointmentDetailsModel.Status;
+                        result.visitStatusId = appointmentDetailsModel.visitStatusId;
                     }
 
                     _schedulerModelDbContext.appointmentDetails.Update(result);
@@ -131,12 +131,12 @@ namespace SchedulerModule.Repository
                 return null;
         }
 
-        public async Task<List<ViewAppointmentModel>> GetAppointmentsLoad(int id, int roleId)
+        public async Task<List<ViewAppointmentModels>> GetAppointmentsLoad(int id, int roleId)
         {
             if (_schedulerModelDbContext != null)
             {
                 List<AppointmentDetails> appointments = new List<AppointmentDetails>();
-                List<ViewAppointmentModel> viewAppointments = new List<ViewAppointmentModel>();
+                List<ViewAppointmentModels> viewAppointments = new List<ViewAppointmentModels>();
                 if (roleId == 3)
                 {
                     appointments = await _schedulerModelDbContext.appointmentDetails.ToListAsync();
@@ -147,16 +147,16 @@ namespace SchedulerModule.Repository
                 }
                 foreach (var item in appointments)
                 {
-                    ViewAppointmentModel model = new ViewAppointmentModel();
+                    ViewAppointmentModels model = new ViewAppointmentModels();
                     model.Id = item.VisitId;
                     model.Start = (DateTime)item.AppointmentStartdate;
                     model.End = (DateTime)item.AppointmentEnddate;
                     model.Text = item.VisitTitle;
-                    if (item.Status == "Declined")
+                    if (item.visitStatusId ==2 )
                     {
                         model.BackColor = "#db403b";
                     }
-                    else if (item.Status == "Accepted")
+                    else if (item.visitStatusId == 3)
                     {
                         model.BackColor = "#ADD8E6";
                     }
@@ -182,7 +182,7 @@ namespace SchedulerModule.Repository
                 if (result != null)
                 {
 
-                      result.Status = "Accepted";
+                      result.visitStatusId = 3;
                     //_schedulerModelDbContext.Entry(result).State = EntityState.Modified;  
                     _schedulerModelDbContext.appointmentDetails.Update(result);
                     await _schedulerModelDbContext.SaveChangesAsync();
@@ -201,7 +201,7 @@ namespace SchedulerModule.Repository
 
                 if (result != null)
                 {
-                    result.Status = "Declined";
+                    result.visitStatusId = 2;
 
                     _schedulerModelDbContext.appointmentDetails.Update(result);
                     return await _schedulerModelDbContext.SaveChangesAsync();

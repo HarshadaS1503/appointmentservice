@@ -30,7 +30,11 @@ namespace SchedulerModule.Models
         public int updatedBy { get; set; }
          
         public DateTime updatedOn { get; set; }
-        public string Status { get; set; }
+
+        [ForeignKey("visitStatuses")]
+        public int visitStatusId { get; set; }
+        //public string Status { get; set; }
+        public VisitStatuses visitStatuses { get; set; }
         public ApplicationUser users { get; set; }
 
 

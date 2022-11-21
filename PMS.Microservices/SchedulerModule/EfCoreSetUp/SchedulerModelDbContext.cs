@@ -25,6 +25,8 @@ namespace SchedulerModule.EfCoreSetUp
         public DbSet<AppointmentDetails> appointmentDetails { get; set; }
         public DbSet<Slots> Slots { get; set; }
 
+        public DbSet<VisitStatuses> visitStatuses { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

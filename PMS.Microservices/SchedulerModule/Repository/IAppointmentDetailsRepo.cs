@@ -16,7 +16,7 @@ namespace SchedulerModule.Repository
         Task<AppointmentDetails> GetAppointmentDetailByIdAndRoleId(int id,int roleId);
         Task<List<Slots>> GetSlots(DateTime dateTime,int id);
         Task<List<AppointmentDetails>> GetAppointmentsByUser(int userId);
-        Task<List<ViewAppointmentModel>> GetAppointmentsLoad(int id, int roleId);
+        Task<List<ViewAppointmentModels>> GetAppointmentsLoad(int id, int roleId);
         Task<int> DeclineAppointment(int id);
         Task<int> AcceptAppointment(int id);
         bool IsAppointmentAvailable(int visitId);

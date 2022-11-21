@@ -85,8 +85,6 @@ C:\Mohanraj\IMPACT\Impact_Project\MyProject\Friday18-11-2022New\appointmentservi
 C:\Mohanraj\IMPACT\Impact_Project\MyProject\Friday18-11-2022New\appointmentservice\PMS.Microservices\SchedulerModule\obj\Debug\netcoreapp3.1\SchedulerModule.dll
 C:\Mohanraj\IMPACT\Impact_Project\MyProject\Friday18-11-2022New\appointmentservice\PMS.Microservices\SchedulerModule\obj\Debug\netcoreapp3.1\SchedulerModule.pdb
 C:\Mohanraj\IMPACT\Impact_Project\MyProject\Friday18-11-2022New\appointmentservice\PMS.Microservices\SchedulerModule\obj\Debug\netcoreapp3.1\SchedulerModule.genruntimeconfig.cache
-C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\appsettings.Development.json
-C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\LoginService.deps.json
 C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\LoginService.runtimeconfig.json
 C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\LoginService.runtimeconfig.dev.json
@@ -95,6 +93,8 @@ C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcore
 C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\PatientModuleService.runtimeconfig.json
 C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\PatientModuleService.runtimeconfig.dev.json
 C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\PatientModuleService.exe
+C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\SchedulerModule.exe
 C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\SchedulerModule.deps.json
 C:\Users\MamtaY\pms_persona-\PMS.Microservices\SchedulerModule\bin\Debug\netcoreapp3.1\SchedulerModule.runtimeconfig.json

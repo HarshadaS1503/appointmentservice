@@ -1,4 +1,5 @@
 ﻿using InboxService.Models;
+using InboxService.Models;
 using LoginService.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
