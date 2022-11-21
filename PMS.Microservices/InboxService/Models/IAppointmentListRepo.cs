@@ -9,10 +9,9 @@ namespace InboxService.Models
 {
     public interface IAppointmentListRepo
     {
-        Task<List<ViewAppointmentModel>> DashboardAppointmentListCount(int id);
-
+        Task<List<ViewAppointmentModel>> DashboardAppointmentListCount(int id, int roleId);
         Task<AppointmentDetails> Appointmentlist(int id);
-
         Task<int> UpdateAppointmentlist(UpdateAppointmentModel updateAppointmentModel);
+        Task<List<ViewAppointmentModel>> DashboardTotalAppointmentHistory(int id, int roleId);
     }
 }

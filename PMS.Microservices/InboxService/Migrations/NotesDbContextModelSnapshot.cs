@@ -66,21 +66,6 @@ namespace InboxService.Migrations
 
                     b.ToTable("Notes");
                 });
-
-            modelBuilder.Entity("InboxService.Models.VisitStatus", b =>
-                {
-                    b.Property<int>("VisitStatusId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("VisitStatusName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("VisitStatusId");
-
-                    b.ToTable("VisitStatuses");
-                });
 #pragma warning restore 612, 618
         }
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InboxService.Migrations
 {
     [DbContext(typeof(NotesDbContext))]
-    [Migration("20221118133616_inboxService")]
-    partial class inboxService
+    [Migration("20221121082821_InboxServices")]
+    partial class InboxServices
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -67,21 +67,6 @@ namespace InboxService.Migrations
                     b.HasKey("NoteId");
 
                     b.ToTable("Notes");
-                });
-
-            modelBuilder.Entity("InboxService.Models.VisitStatus", b =>
-                {
-                    b.Property<int>("VisitStatusId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("VisitStatusName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("VisitStatusId");
-
-                    b.ToTable("VisitStatuses");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InboxService.Migrations
 {
-    public partial class inboxService : Migration
+    public partial class InboxServices : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,28 +30,12 @@ namespace InboxService.Migrations
                 {
                     table.PrimaryKey("PK_Notes", x => x.NoteId);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "VisitStatuses",
-                columns: table => new
-                {
-                    VisitStatusId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    VisitStatusName = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_VisitStatuses", x => x.VisitStatusId);
-                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Notes");
-
-            migrationBuilder.DropTable(
-                name: "VisitStatuses");
         }
     }
 }

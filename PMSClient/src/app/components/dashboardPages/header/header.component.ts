@@ -22,12 +22,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.loggedInUser=localStorage.getItem('username');
+    console.log("User Name"+ this.loggedInUser);
     this.loginserv.getLoginResponse().subscribe((data)=>
       {
          this.objloginresponse=data as loginResponse; 
         console.log("From HeaderComponent"+this.objloginresponse.name)
-        this.loggedInUser=this.objloginresponse.name;
+        //this.loggedInUser=this.objloginresponse.name;
         
       });
   

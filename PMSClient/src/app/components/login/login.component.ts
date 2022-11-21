@@ -69,6 +69,7 @@ export class LoginComponent implements OnInit {
       {
         localStorage.setItem('userid',JSON.stringify(Object( this.resp)["responseInfo"].userID));
         localStorage.setItem('roleid',JSON.stringify(Object( this.resp)["responseInfo"].roleID));
+        localStorage.setItem('username',JSON.stringify(Object( this.resp)["responseInfo"].name));
         this.objloginresposne=res as loginResponse;
         
       

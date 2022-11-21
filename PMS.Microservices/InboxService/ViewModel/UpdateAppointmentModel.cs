@@ -9,5 +9,7 @@ namespace InboxService.ViewModel
     {
         public int AppointmentId { get; set; }
         public int UpdateType { get; set; }
+        public int UserId { get; set; }
+        public int roleId { get; set; }
     }
 }

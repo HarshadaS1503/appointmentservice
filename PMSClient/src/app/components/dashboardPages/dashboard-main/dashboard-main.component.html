@@ -69,6 +69,26 @@
          </div>
          <div class="col-lg-4">
             <div class="card">
+               <a routerLink="/appointmentHistorylist">
+                  <div class="card-body">
+                     <h5 class="card-title d-flex justify-content-center"><i
+                           class="bi bi-calendar2-check-fill text-success"></i>&nbsp;Appointments History</h5>
+                     <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+
+                        </div>
+                        <div class="ps-3">
+                           <span class="text-success small pt-1 fw-bold" data-bs-toggle="tooltip"
+                              data-bs-placement="left" title="This Week's completed appointments">You had
+                              {{appointmentHistoryCount}} appointments</span>
+                        </div>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-lg-4" *ngIf="loggedRoleId!=4">
+            <div class="card">
                <a routerLink="/notes">
                <div class="card-body">
                   <h5 class="card-title d-flex justify-content-center">Notes</h5>

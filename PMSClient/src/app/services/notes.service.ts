@@ -12,27 +12,33 @@ export class NotesService {
   constructor(private _http: HttpClient) { }
 
   getUsers(id: number) {
-    return this._http.get<any[]>("https://localhost:44357/api/Notes/GetUsers/10"); //d
+    return this._http.get<any[]>("https://localhost:44357/api/Notes/GetUsers/" + id); //dd
   }
 
   sendNotes(sendNotesObj: any): Observable<any> {
-    return this._http.post<any>("https://localhost:44357/api/Notes/AddNote", sendNotesObj); //d
+    return this._http.post<any>("https://localhost:44357/api/Notes/AddNote", sendNotesObj); //dd
   }
 
   getAllNotesBySenderId(id: number): Observable<any> {
-    return this._http.get<ResponseModel>("https://localhost:44357/api/Notes/GetAllSentNotes/10"); //d
+    return this._http.get<ResponseModel>("https://localhost:44357/api/Notes/GetAllSentNotes/" + id); //dd
   }
 
   getAllNotesByReceiverId(id: number): Observable<any> {
-    return this._http.get<ResponseModel>("https://localhost:44357/api/Notes/GetAllReceivedNotes/10"); //d
+    return this._http.get<ResponseModel>("https://localhost:44357/api/Notes/GetAllReceivedNotes/" + id); //dd
   }
 
   deleteNoteByid(id: Number): Observable<any> {
-    return this._http.delete<ResponseModel>("https://localhost:44357/api/Notes/DeleteNote/" + id); //d
+    return this._http.delete<ResponseModel>("https://localhost:44357/api/Notes/DeleteNote/" + id); //dd
   }
 
-  getAllAppointments(id: number) {
-    return this._http.get<ResponseModel>("https://localhost:44357/api/DashboardAppointmentList/GetAppointmentCount/1");
+  getAllAppointments(id: number, roleId: number): Observable<any> {
+    return this._http.get<ResponseModel>
+      ("https://localhost:44357/api/DashboardAppointmentList/GetAppointmentCount/" + id + '/' + roleId) //dd
+  }
+
+  getAllAppointmentsHistory(id: number, roleId: number): Observable<any> {
+    return this._http.get<ResponseModel>
+      ("https://localhost:44357/api/DashboardAppointmentList/GetAppointmentHistory/" + id + '/' + roleId) //dd
   }
 
   updateAppointmentStatus(appointmentObj: any) {

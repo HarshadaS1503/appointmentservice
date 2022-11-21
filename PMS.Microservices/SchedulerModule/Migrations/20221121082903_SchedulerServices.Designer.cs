@@ -10,8 +10,8 @@ using SchedulerModule.EfCoreSetUp;
 namespace SchedulerModule.Migrations
 {
     [DbContext(typeof(SchedulerModelDbContext))]
-    [Migration("20221121061212_AppointmentTblWithStatus")]
-    partial class AppointmentTblWithStatus
+    [Migration("20221121082903_SchedulerServices")]
+    partial class SchedulerServices
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

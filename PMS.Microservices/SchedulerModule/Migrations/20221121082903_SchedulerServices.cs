@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SchedulerModule.Migrations
 {
-    public partial class AppointmentTblWithStatus : Migration
+    public partial class SchedulerServices : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

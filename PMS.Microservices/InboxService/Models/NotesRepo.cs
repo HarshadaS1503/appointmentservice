@@ -30,7 +30,13 @@ namespace InboxService.Models
                     _notesDbContext.Notes.Update(notes);
                     model.ReplyId = null;
                 }
+
+                var senderDetails = _loginContext.Users.Where(r => r.Id == Convert.ToInt32(model.SenderId)).
+                   Select(a => new { a.Title, a.FirstName, a.LastName, a.RoleID }).FirstOrDefault();
                 model.CreatedDate = DateTime.Now;
+                model.SenderName = senderDetails.Title + " " +
+                    senderDetails.FirstName + " " + senderDetails.LastName;
+                model.SenderDesignation = _loginContext.Roles.Where(r => r.Id == senderDetails.RoleID).FirstOrDefault().Name.ToString();
                 await _notesDbContext.Notes.AddAsync(model);
                 return await _notesDbContext.SaveChangesAsync();
             }
@@ -112,7 +118,7 @@ namespace InboxService.Models
         {
             if (_loginContext != null)
             {
-                var users = await _loginContext.Users.Where(o => o.Id != id).ToListAsync();
+                var users = await _loginContext.Users.Where(o => o.Id != id && o.RoleID != 4).ToListAsync();
                 //var users = this._loginContext.Users.Where(r=>r.Id!=id).ToList();
                 List<UsersList> usersList = new List<UsersList>();
                 if (users != null)

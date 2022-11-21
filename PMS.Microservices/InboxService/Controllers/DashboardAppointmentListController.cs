@@ -20,10 +20,10 @@ namespace InboxService.Controllers
             _appointmentListRepo = appointmentListRepo;
         }
 
-        [HttpGet("GetAppointmentCount/{id}")]
-        public async Task<object> GetDashboardAppointmentCount(int id)
+        [HttpGet("GetAppointmentCount/{id}/{roleid}")]
+        public async Task<object> GetDashboardAppointmentCount(int id, int roleid)
         {
-            var result = await _appointmentListRepo.DashboardAppointmentListCount(id);
+            var result = await _appointmentListRepo.DashboardAppointmentListCount(id, roleid);
 
             if (result != null)
             {
@@ -54,6 +54,18 @@ namespace InboxService.Controllers
                 return await Task.FromResult(new ResponseModel(ResponseCode.OK, "", result));
             }
             return await Task.FromResult(new ResponseModel(ResponseCode.Error, "Error while retrieving ", result));
+        }
+
+        [HttpGet("GetAppointmentHistory/{id}/{roleid}")]
+        public async Task<object> GetDashboardTotalAppointmentHistory(int id, int roleid)
+        {
+            var result = await _appointmentListRepo.DashboardTotalAppointmentHistory(id, roleid);
+
+            if (result != null)
+            {
+                return await Task.FromResult(new ResponseModel(ResponseCode.OK, "", result));
+            }
+            return await Task.FromResult(new ResponseModel(ResponseCode.Error, "no appointment count", result));
         }
     }
 }

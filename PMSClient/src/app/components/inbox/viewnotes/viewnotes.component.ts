@@ -14,15 +14,18 @@ export class ViewnotesComponent implements OnInit {
   totalLength:any;
   page:number=1;
 
+  loggedUserId: number;
+
   constructor(private _service: NotesService) { }
 
   ngOnInit(): void {
+    this.loggedUserId = Number(localStorage.getItem('userid'));
     this.getSentNotes();
   }
 
   getSentNotes() {
 
-    this._service.getAllNotesBySenderId(1).subscribe((response: ResponseModel) => {
+    this._service.getAllNotesBySenderId(this.loggedUserId).subscribe((response: ResponseModel) => {
       debugger;
       this.dataTableValues = response.dataSet;
     });

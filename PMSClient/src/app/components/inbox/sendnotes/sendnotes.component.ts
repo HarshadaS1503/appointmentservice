@@ -20,11 +20,12 @@ export class SendnotesComponent implements OnInit {
   receiverId!: number;
   receiverName: string = '';
   noteobj!: NotesModel;
+  loggedUserId: number;
 
   constructor(private _service: NotesService, private _formBuilder: FormBuilder, private _toast: NgToastService) { }
 
   ngOnInit(): void {
-
+    this.loggedUserId = Number(localStorage.getItem('userid'));
     this.getUserList()
 
     this.sendNoteForm = this._formBuilder.group({
@@ -37,7 +38,7 @@ export class SendnotesComponent implements OnInit {
   }
 
   getUserList() {
-    this._service.getUsers(10).subscribe((response: any) => {
+    this._service.getUsers(this.loggedUserId).subscribe((response: any) => {
       this.users = response.dataSet;
       console.log(this.users);
     });
@@ -55,9 +56,9 @@ export class SendnotesComponent implements OnInit {
     if (this.sendNoteForm.valid) {
       debugger;
       this.noteobj = new NotesModel();
-      this.noteobj.senderId = 10;
-      this.noteobj.senderName = "Mr Luke Walker";
-      this.noteobj.senderDesignation = "Doctor";
+      this.noteobj.senderId = this.loggedUserId;
+      //this.noteobj.senderName = "Mr Luke Walker";
+      //this.noteobj.senderDesignation = "Doctor";
       this.noteobj.receiverId = this.receiverId;
       this.noteobj.receiveName = this.receiverName;
       this.noteobj.receiverDesignation = this.receiverDesignation;
@@ -68,18 +69,18 @@ export class SendnotesComponent implements OnInit {
       this.noteobj.deleteFlag = false;
       console.log(this.noteobj);
       this._service.sendNotes(this.noteobj).subscribe((data: ResponseModel) => {
-        if(data.responseCode==1){
-        debugger;
-        console.log(data);
-        this._toast.success({detail:"Sent Message",summary:"Successfully!",duration:3000});
-        this.ngOnInit();
-       
+        if (data.responseCode == 1) {
+          debugger;
+          console.log(data);
+          this._toast.success({ detail: "Sent Message", summary: "Successfully!", duration: 3000 });
+          this.ngOnInit();
+
         }
-       else{
-        this._toast.error({detail:"Error Message",summary:"Error Success!",duration:3000});
-       }
+        else {
+          this._toast.error({ detail: "Error Message", summary: "Error Success!", duration: 3000 });
+        }
       })
     }
   }
-  
+
 }

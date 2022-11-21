@@ -1,5 +1,4 @@
 ﻿using InboxService.Models;
-using InboxService.Models;
 using LoginService.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -25,7 +24,7 @@ namespace InboxService.EFCoreSetUp
         //}
 
         public DbSet<Notes> Notes { get; set; }
-        public DbSet<VisitStatus> VisitStatuses { get; set; }
+        //public DbSet<VisitStatus> VisitStatuses { get; set; }
         //public DbSet<ApplicationRole> ApplicationRoles { get; set; }
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }

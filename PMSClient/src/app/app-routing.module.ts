@@ -6,6 +6,7 @@ import { Calender1Component } from './components/appointment/calender1/calender1
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { DashboardMainComponent } from './components/dashboardPages/dashboard-main/dashboard-main.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { AppointmenthistorylistComponent } from './components/inbox/appointmenthistorylist/appointmenthistorylist.component';
 import { AppointmentlistComponent } from './components/inbox/appointmentlist/appointmentlist.component';
 //import { AppointmentlistComponent } from './components/inbox/appointmentlist/appointmentlist.component';
 import { NotesComponent } from './components/inbox/notes/notes.component';
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:'Appointment-creation', component:AppointmentCreationComponent},
   {path:'notes', component:NotesComponent},
   {path:'appointmentlist', component:AppointmentlistComponent},
-  {path:'NewCalender', component:Calender1Component}
+  {path:'NewCalender', component:Calender1Component},
+  {path:'appointmentHistorylist',component:AppointmenthistorylistComponent}
 ];
 
 @NgModule({

@@ -30,6 +30,7 @@ import { AdminComponent } from './components/admin/admin.component';
  import { NgToastModule } from 'ng-angular-popup';
   import {NgxPaginationModule} from 'ngx-pagination';
 import { Calender1Component } from './components/appointment/calender1/calender1.component';
+import { AppointmenthistorylistComponent } from './components/inbox/appointmenthistorylist/appointmenthistorylist.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { Calender1Component } from './components/appointment/calender1/calender1
     EmergencyComponent,
     DemographicComponent,
     AdminComponent,
-    Calender1Component
+    Calender1Component,
+    AppointmenthistorylistComponent
    
   ],
   imports: [

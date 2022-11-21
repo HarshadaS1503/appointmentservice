@@ -17,14 +17,32 @@ export class AppointmentlistComponent implements OnInit {
   totalLength: any;
   page: number = 1;
 
+  loggedRoleId: number;
+  loggedUserId: number;
+
+  confirmBtnVisible: boolean = true;
+  completedBtVisible: boolean = true;
+  noShowBtnVisible: boolean = true;
+
   constructor(private _service: NotesService, private _toast: NgToastService) { }
 
   ngOnInit(): void {
+    this.loggedUserId = Number(localStorage.getItem('userid'));
+    this.loggedRoleId = Number(localStorage.getItem('roleid'));
     this.GettAppointmentsList();
+
+    if (this.loggedRoleId == 3 || this.loggedRoleId == 4) {
+      debugger;
+      this.confirmBtnVisible = false
+      this.completedBtVisible = false
+      if (this.loggedRoleId == 4) {
+        this.noShowBtnVisible = false
+      }
+    }
   }
 
   GettAppointmentsList() {
-    this._service.getAllAppointments(1).subscribe((response: ResponseModel) => {
+    this._service.getAllAppointments(this.loggedUserId, this.loggedRoleId).subscribe((response: ResponseModel) => {
       if (response.responseCode == 1) {
         debugger;
         this.dataTableValues = response.dataSet;
@@ -47,6 +65,8 @@ export class AppointmentlistComponent implements OnInit {
     let updateAppointmentObj: updateappointment = new updateappointment();
     updateAppointmentObj.AppointmentId = this.appointmentId;
     updateAppointmentObj.UpdateType = statusId;
+    updateAppointmentObj.UserId = this.loggedUserId;
+    updateAppointmentObj.roleId = this.loggedRoleId;
 
     this._service.updateAppointmentStatus(updateAppointmentObj).subscribe((response: any) => {
       if (response.responseCode == 1) {
