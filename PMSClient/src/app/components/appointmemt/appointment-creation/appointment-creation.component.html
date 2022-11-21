@@ -123,19 +123,19 @@
               <div class="form-outline mb-4">
             
                 <label class="form-label" for="form3Example1c">	Meeting Title</label>
-                <input type="text" formControlName="MeetingTitle" [ngModel]="MeetingTitle" id="MeetingTitle" class="form-control" />
+                <input type="text" formControlName="MeetingTitle"  id="MeetingTitle" class="form-control" />
               </div>
               
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4c">Description of the Appointment</label>
-                  <input type="text" formControlName="Description" [ngModel]="Description" id="Description" class="form-control" />
+                  <input type="text" formControlName="Description"  id="Description" class="form-control" />
                   
                 </div>
               <h2></h2>
               <div class="row">
                 <div class="col-md-4 mb-4">
                   <label class="form-label" for="form3Example3c">Patient Name</label>
-                  <select formControlName="Pname" [ngModel]="Pname" id="Pname" class="select">
+                  <select formControlName="Pname"  id="Pname" class="select">
                     <option value="{{pts.id}}" *ngFor="let pts of Patient">{{pts.firstName +" " +pts.lastName}} </option>
                     
                   </select>
@@ -144,7 +144,7 @@
                 <div class="col-md-4 mb-4">
                   <label class="form-label" for="form3Example3c">Physician Name</label>
 
-                  <select formControlName="PhName" [ngModel]="PhName" id="PhName" class="select">
+                  <select formControlName="PhName" id="PhName" class="select">
                     <option value="{{phys.id}}" *ngFor="let phys of physician ">{{phys.firstName+ " "+phys.lastName}}</option>
                     
                   </select>
@@ -161,12 +161,12 @@
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example4c">Appointment Date</label>
-                    <input formControlName="APTdate" (ngModelChange)="OnDateTimeChange($event)" [ngModel]="APTdate"  type="date" id="APTdate" class="form-control" />
+                    <input formControlName="APTdate" (ngModelChange)="OnDateTimeChange($event)"  type="date" id="APTdate" class="form-control" />
                     
                   </div>
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example4c">Appointment  Time</label>
-                    <select formControlName="APTdate" [ngModel]="APTdate"  type="datetime" id="APTdate" class="select">
+                    <select formControlName="slotTiming"   type="datetime" id="APTdate" class="select">
                       <option value="{{slot.slotId}}" *ngFor="let slot of slots ">{{slot.slotTiming}}</option>
                       
                     </select>

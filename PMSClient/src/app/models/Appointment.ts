@@ -1,20 +1,15 @@
+import { data } from "@syncfusion/ej2";
 
 export class Appointment{
 
-    visitId:number =0;
+    
     visitTitle:string;
     visitDescription:string;
     doctorId:number=0;
     patientId:number=0;
     visitDate:Date;
-    visitTime:Date;
-    createdBy:number=0;
-    createdOn:number=0;
-    updatedBy:number=0;
-    updatedOn:Date;
-    visitStatusId:number=0;
-    users :Users[] = new Array();
-
+    slotId: number;
+    status: string;
 }
 
 export class Users

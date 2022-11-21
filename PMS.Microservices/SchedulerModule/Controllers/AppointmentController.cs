@@ -101,10 +101,10 @@ namespace SchedulerModule.Controllers
 
 
         [HttpPost]
-        public async Task<object> addAppointmentDetails([FromBody] AppointmentDetails appointmentDetails)
+        public async Task addAppointmentDetails([FromBody] AppointmentDetails appointmentDetails)
         {
             await _appointmentDetailsRepo.AddAppointmentDetails(appointmentDetails);
-            return appointmentDetails;
+            
         }
 
 

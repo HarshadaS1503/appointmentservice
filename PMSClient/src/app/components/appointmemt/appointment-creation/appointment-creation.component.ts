@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { UserModel } from 'src/app/models/User';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import * as $ from 'jquery'
+import { pipe } from 'rxjs';
+import { Appointment } from 'src/app/models/Appointment';
 @Component({
   selector: 'app-appointment-creation',
   templateUrl: './appointment-creation.component.html',
@@ -28,11 +30,13 @@ export class AppointmentCreationComponent implements OnInit {
     Pname: new FormControl(),
     PhName: new FormControl(),
     APTdate : new FormControl(),
+    slotTiming:new FormControl(),
   });
   
   
   data:any;
   AptData:any;
+  appointment: Appointment;
   constructor(private Appointmentservice:AppointmentService,private fb: FormBuilder) { 
 
 
@@ -53,10 +57,25 @@ export class AppointmentCreationComponent implements OnInit {
 
   PostAppointmentData()
   {
-      this.Appointmentservice.postAppointmentDetails(this.data).subscribe((res)=>{
-
-        console.log(this.data);
+    if(this.AppointmentForm.valid){
+      console.log(this.AppointmentForm);
+      this.appointment= new Appointment();
+      this.appointment.doctorId=Number(this.AppointmentForm.get('PhName')?.value);
+      this.appointment.patientId=Number(this.AppointmentForm.get('Pname')?.value);
+      this.appointment.visitDate=this.AppointmentForm.get('APTdate')?.value;
+      this.appointment.visitTitle=this.AppointmentForm.get('MeetingTitle')?.value;
+      this.appointment.visitDescription=this.AppointmentForm.get('Description')?.value;
+      this.appointment.slotId=Number(this.AppointmentForm.get('slotTiming')?.value);
+      console.log(this.appointment);
+      this.Appointmentservice.postAppointmentDetails(this.appointment).subscribe(res=>{
+        
+        alert(res);
       })
+    }
+    
+    else{
+      alert("Please fill all details");
+    }
   }
 
   getPatient()
@@ -109,10 +128,10 @@ formatDate(datestr)
     // month = month>9?month:"0"+month;
     // return month+"/"+day+"/"+date.getFullYear();
 }
-getAvailableSlots()
+getAvailableSlots(date:any,id:number)
 {
-  this.getApt();
-  this.Appointmentservice.getSlots(this.visitDate,this.phyId).subscribe(res =>{
+  //this.getApt();
+  this.Appointmentservice.getSlots(date,id).subscribe(res =>{
     this.slots=res;
     console.log(this.slots);
   })
@@ -122,7 +141,10 @@ getAvailableSlots()
 OnDateTimeChange(event:any)
 {
    let pId = this.AppointmentForm.get("PhName")?.value;
-   this.getAvailableSlots();
+   this.getAvailableSlots(event,pId);
+   console.log(event);
+   console.log(pId);
+
 }
 
 

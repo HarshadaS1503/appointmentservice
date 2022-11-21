@@ -164,6 +164,23 @@ export class CalendarComponent implements OnInit {
   }
 
 
+
+  configWeek: DayPilot.CalendarConfig = {
+    viewType: "Week",
+    onTimeRangeSelected: async (args) => {
+      const modal = await DayPilot.Modal.prompt("Create a new event:", "Event 1");
+      const dp = args.control;
+      dp.clearSelection();
+      if (!modal.result) { return; }
+      dp.events.add(new DayPilot.Event({
+        start: args.start,
+        end: args.end,
+        id: DayPilot.guid(),
+        text: modal.result
+      }));
+    }
+  };
+
   displayMonth(){
     this.enableMonth=true;
     this.enableWeek=false;
