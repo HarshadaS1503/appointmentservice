@@ -50,6 +50,10 @@ namespace PatientModuleService
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
             app.UseRouting();
 

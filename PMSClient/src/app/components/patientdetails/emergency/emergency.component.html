@@ -23,7 +23,7 @@
                          </div>
                          
                          
-                       <form >
+                       <form [formGroup]="emergencydetails" class="row g-3 needs-validation"  (ngSubmit)= "pemergencydetails()">
                            
                             <div class="col-12 float-sm-left">
                               
@@ -31,40 +31,40 @@
                                <div class="col-12 float-sm-left">
                                  <label for="firstName" class="form-label">First Name</label>
                                    <input type="text"  name="firstName" class="form-control" id="firstName"formControlName="firstName"  placeholder="Enter your First Name" required>
-                                   <div class="invalid-feedback" >Please Enter firstName!</div>&nbsp;
+                                   <div class="invalid-feedback" *ngIf= "emergencydetails.hasError('required','firstName')">Please Enter firstName!</div>&nbsp;
 
-                                   <small >Enter firstName!</small>
+                                   <small *ngIf= "emergencydetails.controls['firstName'].dirty && emergencydetails.hasError('required','firstName')">Enter firstName!</small>
                                </div>
                             </div>
                             <div class="col-12 float-sm-left">
                                <label for="lastName" class="form-label">Last Name</label> <input type="text" name="lastName" class="form-control" id="lastname" formControlName="lastName" placeholder="Enter your Last Name" required>
-                               <div class="invalid-feedback" >Please enter your last Name!</div>&nbsp;
+                               <div class="invalid-feedback" *ngIf= " emergencydetails.hasError('required','lastName')">Please enter your last Name!</div>&nbsp;
 
-                               <small >Please enter your last Name!</small>
+                               <small *ngIf= "emergencydetails.controls['lastName'].dirty && emergencydetails.hasError('required','lastName')">Please enter your last Name!</small>
 
                             </div>
                             
                             <div class="col-12">
                                <label for="contact" class="form-label">Contact No</label> 
-                               <input type="text" name="contact" class="form-control" id="contact" formControlName="contact" placeholder="Enter your Contact" required>
+                               <input type="number" name="contact" class="form-control" id="contact" formControlName="contact" placeholder="Enter your Contact" required>
                                <!-- <div class="invalid-feedback" *ngIf= " emergencydetails.hasError('required','contact')">Please enter your Contact!</div> -->
-                               <div class="invalid-feedback" >Please enter Contact Number</div>&nbsp;
+                               <div class="invalid-feedback" *ngIf= " emergencydetails.hasError('required','contact')">Please enter Contact Number</div>&nbsp;
 
-                                <small >Please enter Contact Number</small> 
+                                <small *ngIf= "emergencydetails.controls['contact'].dirty && emergencydetails.hasError('required','contact')">Please enter Contact Number</small> 
                             </div>
                             <div class="col-12">
                                  <label for="email" class="form-label">Email</label> <input type="email" name="email" class="form-control" id="email"  formControlName="email"  placeholder="Enter your Email" required>
                                  <!-- <div class="invalid-feedback" *ngIf= "emergencydetails.hasError('required','email')">Please enter Email!</div> -->
-                                 <div class="invalid-feedback">Please enter Contact Number</div>&nbsp;
+                                 <div class="invalid-feedback" *ngIf= " emergencydetails.hasError('required','email')">Please enter Contact Number</div>&nbsp;
 
-                                 <small >Please enter your email address</small>
+                                 <small *ngIf= "emergencydetails.controls['email'].dirty && emergencydetails.hasError('required','email')">Please enter your email address</small>
                        
                               </div>
                               <div class="col-12">
                                  <label for="relation" class="form-label">Relationship</label>&nbsp; 
-                                 <select >
+                                 <select (change)="selectRelationDrop($event)" formControlName="relation" name="relation" id="relation" style="width: 85px; ;">
                                     <option>--Select--</option>
-                                   <option ></option>
+                                   <option *ngFor="let i of relation" value="{{i}}">{{i}}</option>
                                </select>
                                
                                  <!-- <select name="relation" id="relation">
@@ -74,8 +74,8 @@
                                   <option value="sister">Sister</option>
                                   <option value="guardian">Guardian</option> -->
                                 
-                                 <div class="invalid-feedback" >Please select Relationship!</div>&nbsp;
-                                  <small >Kindly select the Relation</small>
+                                 <div class="invalid-feedback" *ngIf= " emergencydetails.hasError('required','relation')">Please select Relationship!</div>&nbsp;
+                                  <small *ngIf= "emergencydetails.controls['relation'].dirty && emergencydetails.hasError('required','relation')">Kindly select the Relation</small>
                                  
                               </div><br>
                             
@@ -84,9 +84,9 @@
                                  <label for="address" class="form-label">Address</label>&nbsp;
                               </div>
                                <textarea id="address" formControlName="address" name="address" rows="4" cols="50" required></textarea>
-                               <div class="invalid-feedback" >Please Enter address!</div>&nbsp;
+                               <div class="invalid-feedback" *ngIf= " emergencydetails.hasError('required','address')">Please Enter address!</div>&nbsp;
 
-                               <small >Enter address!</small>
+                               <small *ngIf= "emergencydetails.controls['address'].dirty && emergencydetails.hasError('required','address')">Enter address!</small>
 
                             </div>
                             

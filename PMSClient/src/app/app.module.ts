@@ -31,6 +31,16 @@ import { AdminComponent } from './components/admin/admin.component';
   import {NgxPaginationModule} from 'ngx-pagination';
 import { Calender1Component } from './components/appointment/calender1/calender1.component';
 import { AppointmenthistorylistComponent } from './components/inbox/appointmenthistorylist/appointmenthistorylist.component';
+import { PatienthomeComponent } from './components/patientdetails/patienthome/patienthome.component';
+import { PatientService } from './services/patient/patient.service';
+import { AllergyComponent } from './components/patientdetails/allergy/allergy.component';
+import { PatientvisithomeComponent } from './components/patientvisit/patientvisithome/patientvisithome.component';
+import { PatientvisitdetailsComponent } from './components/patientvisit/patientvisitdetails/patientvisitdetails.component';
+import { PatientvisitdiagnosisComponent } from './components/patientvisit/patientvisitdiagnosis/patientvisitdiagnosis.component';
+import { PatientvisitmedicationComponent } from './components/patientvisit/patientvisitmedication/patientvisitmedication.component';
+import { PatientvisitprocedureComponent } from './components/patientvisit/patientvisitprocedure/patientvisitprocedure.component';
+import { PatientvisitvitalsignsComponent } from './components/patientvisit/patientvisitvitalsigns/patientvisitvitalsigns.component';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +64,15 @@ import { AppointmenthistorylistComponent } from './components/inbox/appointmenth
     DemographicComponent,
     AdminComponent,
     Calender1Component,
-    AppointmenthistorylistComponent
+    AppointmenthistorylistComponent,
+    PatienthomeComponent,
+    AllergyComponent,
+    PatientvisithomeComponent,
+    PatientvisitdetailsComponent,
+    PatientvisitdiagnosisComponent,
+    PatientvisitmedicationComponent,
+    PatientvisitprocedureComponent,
+    PatientvisitvitalsignsComponent,
    
   ],
   imports: [
@@ -70,7 +88,7 @@ import { AppointmenthistorylistComponent } from './components/inbox/appointmenth
     NgToastModule,
     NgxPaginationModule
   ],
-  providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService,LoginService,DataService],
+  providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService,LoginService,DataService,PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

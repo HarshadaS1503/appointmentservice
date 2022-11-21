@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LoginService\LoginService.csproj" />
-    <ProjectReference Include="..\PatientModuleService\PatientModuleService.csproj" />
   </ItemGroup>
 
 

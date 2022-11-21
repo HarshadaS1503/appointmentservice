@@ -13,6 +13,8 @@ import { NotesComponent } from './components/inbox/notes/notes.component';
 import { LoginComponent } from './components/login/login.component';
 import { DemographicComponent } from './components/patientdetails/demographic/demographic.component';
 import { EmergencyComponent } from './components/patientdetails/emergency/emergency.component';
+import { PatienthomeComponent } from './components/patientdetails/patienthome/patienthome.component';
+import { PatientvisithomeComponent } from './components/patientvisit/patientvisithome/patientvisithome.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path:'notes', component:NotesComponent},
   {path:'appointmentlist', component:AppointmentlistComponent},
   {path:'NewCalender', component:Calender1Component},
-  {path:'appointmentHistorylist',component:AppointmenthistorylistComponent}
+  {path:'appointmentHistorylist',component:AppointmenthistorylistComponent},
+  {path:'patient/home', component:PatienthomeComponent},
+  {path:'patient/visit', component:PatientvisithomeComponent}
 ];
 
 @NgModule({

@@ -35,7 +35,6 @@
           "Microsoft.EntityFrameworkCore": "5.0.17",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.17",
-          "PatientModuleService": "1.0.0",
           "SchedulerModule": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -1547,26 +1546,12 @@
           "LoginService.dll": {}
         }
       },
-      "PatientModuleService/1.0.0": {
-        "dependencies": {
-          "LoginService": "1.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.30",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17"
-        },
-        "runtime": {
-          "PatientModuleService.dll": {}
-        },
-        "compile": {
-          "PatientModuleService.dll": {}
-        }
-      },
       "SchedulerModule/1.0.0": {
         "dependencies": {
           "LoginService": "1.0.0",
           "Microsoft.AspNet.WebApi.Core": "5.1.0",
           "Microsoft.EntityFrameworkCore": "5.0.17",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17",
-          "PatientModuleService": "1.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17"
         },
         "runtime": {
           "SchedulerModule.dll": {}
@@ -3923,11 +3908,6 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "LoginService/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "PatientModuleService/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

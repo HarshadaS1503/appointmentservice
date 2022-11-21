@@ -5971,19 +5971,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MohanrajG\\.nuget\\packages\\": {}
+    "C:\\Users\\PrathmeshR\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Monday21-11-2022\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj",
+      "projectUniqueName": "C:\\Users\\PrathmeshR\\Desktop\\todays pms\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj",
       "projectName": "LoginService",
-      "projectPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Monday21-11-2022\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj",
-      "packagesPath": "C:\\Users\\MohanrajG\\.nuget\\packages\\",
-      "outputPath": "C:\\Mohanraj\\IMPACT\\Impact_Project\\MyProject\\Monday21-11-2022\\appointmentservice\\PMS.Microservices\\LoginService\\obj\\",
+      "projectPath": "C:\\Users\\PrathmeshR\\Desktop\\todays pms\\appointmentservice\\PMS.Microservices\\LoginService\\LoginService.csproj",
+      "packagesPath": "C:\\Users\\PrathmeshR\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PrathmeshR\\Desktop\\todays pms\\appointmentservice\\PMS.Microservices\\LoginService\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\MohanrajG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PrathmeshR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
