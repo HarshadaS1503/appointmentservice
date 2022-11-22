@@ -40,6 +40,7 @@ import { PatientvisitdiagnosisComponent } from './components/patientvisit/patien
 import { PatientvisitmedicationComponent } from './components/patientvisit/patientvisitmedication/patientvisitmedication.component';
 import { PatientvisitprocedureComponent } from './components/patientvisit/patientvisitprocedure/patientvisitprocedure.component';
 import { PatientvisitvitalsignsComponent } from './components/patientvisit/patientvisitvitalsigns/patientvisitvitalsigns.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -86,7 +87,9 @@ import { PatientvisitvitalsignsComponent } from './components/patientvisit/patie
     DayPilotModule,
     RouterModule,
     NgToastModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule, // required animations module    
+    // ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService,LoginService,DataService,PatientService],
   bootstrap: [AppComponent]

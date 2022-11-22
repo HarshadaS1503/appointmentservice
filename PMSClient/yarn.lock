@@ -109,8 +109,10 @@
     "ora" "5.4.1"
     "rxjs" "6.6.7"
 
-"@angular/animations@^14.2.0", "@angular/animations@14.2.9":
-  "version" "14.2.9"
+"@angular/animations@^14.2.11", "@angular/animations@14.2.9":
+  "integrity" "sha512-HOw8xecbKfs7A5Ezjf+BfXKvvwU7X8I0US5Ey6bOuLvpA3QVOGSLw9BeutY5Q2mPWiRgnNNQW+FOd8Pe9gEkpQ=="
+  "resolved" "https://registry.npmjs.org/@angular/animations/-/animations-14.2.11.tgz"
+  "version" "14.2.11"
   dependencies:
     "tslib" "^2.3.0"
 
@@ -162,7 +164,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^14.2.0", "@angular/core@^14.2.1", "@angular/core@^6.0.0 || ^7.0.0", "@angular/core@^6.0.0-rc.0 || ^6.0.0", "@angular/core@>=12.0.0", "@angular/core@>=13.0.0", "@angular/core@>=14.0.0", "@angular/core@>=5.0.0", "@angular/core@14.2.9":
+"@angular/core@^14.2.0", "@angular/core@^14.2.1", "@angular/core@^6.0.0 || ^7.0.0", "@angular/core@^6.0.0-rc.0 || ^6.0.0", "@angular/core@>=12.0.0", "@angular/core@>=13.0.0", "@angular/core@>=14.0.0", "@angular/core@>=5.0.0", "@angular/core@14.2.11", "@angular/core@14.2.9":
   "version" "14.2.9"
   dependencies:
     "tslib" "^2.3.0"

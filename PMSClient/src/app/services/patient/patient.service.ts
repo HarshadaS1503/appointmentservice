@@ -24,5 +24,7 @@ export class PatientService {
   getDiagnosis():Observable<any>{
     return this.http.get<ResponseModel>(this.PatientDiagnosisUrl +'/GetAllDiagnosisDetails')
   }
-  
+  postDiagnosis(data:any):Observable<any>{
+    return this.http.post<ResponseModel>(this.PatientDiagnosisUrl +'/AddDiagnosis',data,{responseType:'text' as 'json'})
+  }
 }

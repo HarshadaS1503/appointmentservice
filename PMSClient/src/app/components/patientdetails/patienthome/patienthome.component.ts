@@ -12,7 +12,7 @@ export class PatienthomeComponent implements OnInit {
   ngOnInit(): void {
   }
   isDemographic: boolean =false;
-  isEmergency: boolean = false;
+  isEmergency: boolean = true;
   isAllergy: boolean = false;
 
   displayPatientDetails(id) {

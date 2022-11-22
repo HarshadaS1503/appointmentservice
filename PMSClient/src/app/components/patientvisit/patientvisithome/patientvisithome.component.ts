@@ -12,7 +12,7 @@ export class PatientvisithomeComponent implements OnInit {
   ngOnInit(): void {
   }
   ispatientvisitdetails: boolean =false;
-  ispatientdiagnosis: boolean = false;
+  ispatientdiagnosis: boolean = true;
   ispatientmedication: boolean = false;
   ispatientprocedure: boolean = false;
   ispatientvitalsigns: boolean = false;

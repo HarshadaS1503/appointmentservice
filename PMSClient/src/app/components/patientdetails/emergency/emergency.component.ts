@@ -31,6 +31,7 @@ export class EmergencyComponent implements OnInit {
   }
   
   ngOnInit(): void {
+   
     this.emergencydetails=this.formBuilder.group({
       firstName:new FormControl('',[Validators.required,Validators.minLength(2)]),
       lastName:new FormControl('',[Validators.required,Validators.minLength(2)]),

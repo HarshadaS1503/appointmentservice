@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { PatientDiagnosisModel } from 'src/app/models/diagnosis';
 import { PatientService } from 'src/app/services/patient/patient.service';
 
 @Component({
@@ -20,6 +21,9 @@ export class PatientvisitdiagnosisComponent implements OnInit {
   secCount:number=1;
   response: any;
   output: any;
+  diagnosisobjPatien:PatientDiagnosisModel;
+  patientId:number=1;
+  diagnosisobj: PatientDiagnosisModel;
   constructor( private toast : NgToastService,private fb:FormBuilder,private router:Router, private formBuilder:FormBuilder,private service:PatientService) { }
 
   ngOnInit() {
@@ -77,15 +81,27 @@ export class PatientvisitdiagnosisComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
+ console.log(this.patientDiagnosisForm.value);
     // stop here if form is invalid
-    if (this.patientDiagnosisForm.invalid) {
-        return;
+    
+    if (this.patientDiagnosisForm.valid) {
+      this.diagnosisobj=new PatientDiagnosisModel();
+       this.diagnosisobj.DiagnosisId=Number(this.output.diagnosisCode) ;
+       this.diagnosisobj.PatientId=this.patientId;
+       this.diagnosisobj.Description=this.output.diagnosisDescription;
+      console.log(this.diagnosisobj);
+    //    this.diagnosisobj.Is_Allergy_Fatal=this.allergydetails.get('Is_Fatal')?.value;
+    // if (this.patientDiagnosisForm.invalid) {
+      this.service.postDiagnosis(this.diagnosisobj).subscribe( (response:any)=>{
+        // this.toast.success('Form Successfully Submitted!');    
+  
+        });
     }
 
     this.toast.success({detail:"Success Message",summary:"Data saved!",duration:3000});
 
   }
+
 
   edit(){
     console.log("edit activated");

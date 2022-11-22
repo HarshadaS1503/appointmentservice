@@ -71,7 +71,9 @@ export class AllergyComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    debugger;
     this.getMasterAllergy();
+    // this.toast.success('Form Successfully Submitted!');
     this.allergydetails=this.formBuilder.group({
       allergytype: new FormControl('',[Validators.required]),
       allergyname: new FormControl('',[Validators.required]),
@@ -86,6 +88,7 @@ export class AllergyComponent implements OnInit {
    //debugger;
     this.service.allAllergies().subscribe((data)=>
     { 
+      // this.toast.success('Form Successfully Submitted!');
       // console.log(data);
       
      // debugger;
@@ -106,7 +109,7 @@ export class AllergyComponent implements OnInit {
     this.isSubmitted=true;
     console.log(this.allergydetails.value);
     if(!this.allergydetails.valid){
-      this.toast.error({detail:"Error Message",summary:"Please Provide all values",duration:5000})
+      // this.toast.error('Error')
     }
     
     else{
@@ -130,18 +133,19 @@ export class AllergyComponent implements OnInit {
        
         // })
         if((this.allergydetails).valid && this.isSubmitted){
-                this.toast.success({detail:"Success Message",summary:"Form Successfully Submitted!",duration:3000});
+                // this.toast.success('Form Successfully Submitted!');
                 this.router.navigate(["/pages-dashboard/dashboard"]);    
                 //this.allergydetails.reset();
                 console.log("inside service call");
-               this.service.allergyDetails(this.allergyobj).subscribe( (response:any)=>{ debugger 
+               this.service.allergyDetails(this.allergyobj).subscribe( (response:any)=>{
+                // this.toast.success('Form Successfully Submitted!'); 
                 
                 
           
                 });
               }else{
           
-                this.toast.error({detail:"Error Message",summary:"Form Failed To Submit!",duration:5000})
+               // this.toast.error('Form Successfully Submitted!')
           
               }
       }
